@@ -1,23 +1,53 @@
 ---
-layout: default
+layout: general
 ---
 
-<div class="home">
-
-  <h1 class="page-heading">Posts</h1>
-
-  <ul class="post-list">
-    {% for post in site.posts %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-
-        <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h2>
-      </li>
-    {% endfor %}
-  </ul>
-
-  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
-
+<div class="row">
+  <div class="col-sm-4">
+    <div class="thumbnail">
+      <img style="height:200px" src="/static/homepage/docker.png">
+      <div class="caption">
+        <h3> Docker </h3>
+        <p> Build, ship, and run any app anywhere with Docker - an open platform for distributed apps for developers and sysadmins </p>
+        <a href="/content/tools/docker/about.html" class="btn btn-default">Learn more</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="thumbnail">
+      <img style="height:200px" src="/static/homepage/vagrant.png">
+      <div class="caption">
+        <h3> Vagrant </h3>
+        <p> Create and configure lightweight, reproducible, and portable dev environments with Vagrant. </p>
+        <a href="/content/tools/vagrant/about.html" class="btn btn-default">Learn more</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="thumbnail">
+      <img style="height:200px" src="/static/homepage/devassistant.png">
+      <div class="caption">
+        <h3> DevAssistant </h3>
+        <p> DevAssistant can help you set up your developing environment, publish your code, and do many of the chores that somehow... </p>
+        <a href="/content/tools/devassistant/about.html" class="btn btn-default">Learn more</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-12">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="media">
+          <div class="media-left">
+            <img style="height:80px" src="/static/homepage/copr.png">
+          </div>
+          <div class="media-body">
+            <h3 class="media-heading"> Copr Build Service </h3>
+            <p> Copr is a community build service that helps developers to distribute their projects. Enhance your Fedora experience with additional software. </p>
+            <a href="http://copr.fedoraproject.org/" target="_blank" class="btn btn-primary">Browse projects</a>
+            <a href="/content/deploy_distribute/copr/about.html" class="btn btn-default">Learn more</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

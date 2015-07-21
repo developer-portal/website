@@ -12,3 +12,12 @@ github_username:  jekyll
 
 # Build settings
 markdown: kramdown
+
+defaults:
+  -
+    scope:
+      path: "content"
+      type: "pages"
+    values:
+      layout: "content"
+
