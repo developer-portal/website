@@ -1,0 +1,76 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="text-center">
+        <a href="/">
+          <img src="/static/logo.png" style="height:90px; margin: 20px">
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+<nav class="navbar navbar-default">
+  <div class="container">
+    <ul class="nav navbar-nav">
+      <li><a href="/">Home</a></li>
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+          Tools <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu" role="menu">
+        {% for p in site.pages %}
+        {% if p.section == "tools" %}
+          <li><a href="{{ p.url }}">{{ p.title }}</a></li>
+        {% endif %}
+        {% endfor %}
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+          Technology <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu" role="menu">
+        <li class="dropdown-header">Languages</li>
+        {% for p in site.pages %}
+        {% if p.section == "tech-languages" %}
+          <li><a href="{{ p.url }}">{{ p.title }}</a></li>
+        {% endif %}
+        {% endfor %}
+        <li role="separator" class="divider"></li>
+        <li class="dropdown-header">Database</li>
+        {% for p in site.pages %}
+        {% if p.section == "tech-database" %}
+          <li><a href="{{ p.url }}">{{ p.title }}</a></li>
+        {% endif %}
+        {% endfor %}
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+          Deployment <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu" role="menu">
+        {% for p in site.pages %}
+        {% if p.section == "deployment" %}
+          <li><a href="{{ p.url }}">{{ p.title }}</a></li>
+        {% endif %}
+        {% endfor %}
+        </ul>
+      </li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+          Fedora.next <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu" role="menu">
+        {% for p in site.pages %}
+        {% if p.section == "fedoranext" %}
+          <li><a href="{{ p.url }}">{{ p.title }}</a></li>
+        {% endif %}
+        {% endfor %}
+        </ul>
+      </li>
+    </ul>
+  </div>
+</nav>

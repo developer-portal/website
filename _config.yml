@@ -19,5 +19,28 @@ defaults:
       path: "content"
       type: "pages"
     values:
-      layout: "content"
-
+      layout: "page"
+  -
+    scope:
+      path: "content/tools"
+      type: "pages"
+    values:
+      highlight_section: "tools"
+  -
+    scope:
+      path: "content/languages"
+      type: "pages"
+    values:
+      highlight_section: "tech"
+  -
+    scope:
+      path: "content/database"
+      type: "pages"
+    values:
+      highlight_section: "tech"
+  -
+    scope:
+      path: "content/deployment"
+      type: "pages"
+    values:
+      highlight_section: "deployment"
