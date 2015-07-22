@@ -5,50 +5,40 @@ highlight_section: tech
 <div class="row">
   <div class="col-sm-12">
     <h1> Technology Overviev </h1>
+    <h2> Languages </h2>
   </div>
-  <div class="col-sm-6">
-  <h2> Languages </h2>
+</div>
+<div class="row text-center">
   {% for p in site.pages %}
   {% if p.section == "tech-languages" %}
+  <div class="col-sm-3 col-md-2">
     <a href="{{ p.url }}">
-      <div class="panel panel-default">
-        <div class="panel-body">
-          <div class="media">
-            <div class="media-left">
-                <img style="height:100px" src="">
-            </div>
-            <div class="media-body">
-              <h2>{{ p.title }}</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dui sem, tincidunt sed tellus at, blandit.</p>
-            </div>
-          </div>
-        </div>
+      <div class="thumbnail">
+        <img style="height:100px" src="{{ p.url | page_logo }}">
+        <h2>{{ p.title }}</h2>
       </div>
     </a>
+  </div>
   {% endif %}
   {% endfor %}
+</div>
+<div class="row">
+  <div class="col-sm-12">
+    <h2> Database </h2>
   </div>
-  <div class="col-sm-6">
-  <h2> Database </h2>
+</div>
+<div class="row text-center">
   {% for p in site.pages %}
   {% if p.section == "tech-database" %}
+  <div class="col-sm-3 col-md-2">
     <a href="{{ p.url }}">
-      <div class="panel panel-default">
-        <div class="panel-body">
-          <div class="media">
-            <div class="media-left">
-                <img style="height:100px" src="">
-            </div>
-            <div class="media-body">
-              <h2>{{ p.title }}</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dui sem, tincidunt sed tellus at, blandit.</p>
-            </div>
-          </div>
-        </div>
+      <div class="thumbnail">
+        <img style="height:100px" src="{{ p.url | page_logo }}">
+        <h2>{{ p.title }}</h2>
       </div>
     </a>
+  </div>
   {% endif %}
   {% endfor %}
-  </div>
 </div>
 
