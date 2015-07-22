@@ -6,15 +6,15 @@ highlight_section: tech
   <div class="col-sm-12">
     <h1> Technology Overviev </h1>
     <ul class="nav nav-tabs nav-tabs-pf">
-      <li class="active"><a href="/tech.html">Languages</a></li>
-      <li><a href="/tech-database.html">Database</a></li>
+      <li><a href="/tech.html">Languages</a></li>
+      <li class="active"><a href="/tech-database.html">Database</a></li>
     </ul>
-    <h2> Languages </h2>
+    <h2> Database </h2>
   </div>
 </div>
 <div class="row">
   {% for p in site.pages %}
-  {% if p.section == "tech-languages" %}
+  {% if p.section == "tech-database" %}
   <div class="col-sm-6">
     <a href="{{ p.url }}">
       <div class="panel panel-default">
