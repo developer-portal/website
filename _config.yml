@@ -28,13 +28,7 @@ defaults:
       highlight_section: "tools"
   -
     scope:
-      path: "content/languages"
-      type: "pages"
-    values:
-      highlight_section: "tech"
-  -
-    scope:
-      path: "content/database"
+      path: "content/tech"
       type: "pages"
     values:
       highlight_section: "tech"
