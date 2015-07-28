@@ -1,0 +1,83 @@
+---
+layout: general
+highlight_section: start
+---
+<div class="row">
+  <div class="col-sm-12">
+    <h1> Start a Project </h1>
+    <p> An easy way to start a new project on Fedora is DevAssistant. <a href="/content/tools/devassistant/about.html">Learn more about DevAssistant</a> or browse the specific guides below. </p>
+  </div>
+  <div class="col-sm-12">
+    <h2> Application </h2>
+  </div>
+  {% for p in site.pages %}
+  {% if p.section == "start-sw" %}
+  <div class="col-sm-6">
+    <a href="{{ p.url }}">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <div class="media">
+            <div class="media-left">
+              <img style="height:100px" src="{{ p.url | page_logo }}">
+            </div>
+            <div class="media-body">
+              <h2>{{ p.title }}</h2>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dui sem, tincidunt sed tellus at, blandit.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </a>
+  </div>
+  {% endif %}
+  {% endfor %}
+  <div class="col-sm-12">
+    <h2> Collaboration </h2>
+  </div>
+  {% for p in site.pages %}
+  {% if p.section == "start-tips" %}
+  <div class="col-sm-6">
+    <a href="{{ p.url }}">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <div class="media">
+            <div class="media-left">
+              <img style="height:100px" src="{{ p.url | page_logo }}">
+            </div>
+            <div class="media-body">
+              <h2>{{ p.title }}</h2>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dui sem, tincidunt sed tellus at, blandit.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </a>
+  </div>
+  {% endif %}
+  {% endfor %}
+  <div class="col-sm-12">
+    <h2> Hardware Devices </h2>
+  </div>
+  {% for p in site.pages %}
+  {% if p.section == "start-hw" %}
+  <div class="col-sm-6">
+    <a href="{{ p.url }}">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <div class="media">
+            <div class="media-left">
+              <img style="height:100px" src="{{ p.url | page_logo }}">
+            </div>
+            <div class="media-body">
+              <h2>{{ p.title }}</h2>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dui sem, tincidunt sed tellus at, blandit.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </a>
+  </div>
+  {% endif %}
+  {% endfor %}
+</div>
+

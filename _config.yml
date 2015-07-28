@@ -22,6 +22,12 @@ defaults:
       layout: "page"
   -
     scope:
+      path: "content/start"
+      type: "pages"
+    values:
+      highlight_section: "start"
+  -
+    scope:
       path: "content/tools"
       type: "pages"
     values:
