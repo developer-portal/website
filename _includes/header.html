@@ -1,6 +1,17 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-12">
+      <div style="margin-bottom: 6px; margin-top: 6px" class="alert alert-warning">
+        <span class="pficon pficon-warning-triangle-o"></span>
+        <strong> This website is just a prototype. </strong>
+        For more information about this project, please visit <a href="https://fedoraproject.org/wiki/Websites/Developer"> Fedora Developer Portal project wiki</a>. Ideas and contributions are welcome!
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
       <div class="text-center">
         <a href="/">
           <img src="/static/logo.png" style="height:90px; margin: 20px">
@@ -14,6 +25,9 @@
     <ul class="nav navbar-nav">
       <li class="{% if page.highlight_section == "home" %} active {%endif%}">
         <a href="/">Home</a>
+      </li>
+      <li class="{% if page.highlight_section == "start" %} active {%endif%}">
+        <a href="/start.html">Start</a>
       </li>
       <li class="{% if page.highlight_section == "tools" %} active {%endif%}">
         <a href="/tools.html">Tools</a>
