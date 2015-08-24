@@ -13,6 +13,12 @@ github_username:  jekyll
 # Build settings
 markdown: kramdown
 
+# Special kramdown settings
+kramdown:
+  input: GFM
+  # This is important to keep the new lines in block codes.
+  hard_wrap: false
+
 defaults:
   -
     scope:
