@@ -10,9 +10,10 @@
         <div class="col-sm-9">
           {{ content }}
         </div>
+        {% assign sorted_pages = site.pages | sort: "order" %}
         <div class="col-sm-3">
           <div class="list-group">
-          {% for p in site.pages %}
+          {% for p in sorted_pages %}
           {% if p.page == page.page %}
             {% if p.section %}
             <a href="{{p.url}}" class="list-group-item {% if p.url == page.url %} active {% endif %}">{{ p.title }}</a>
@@ -20,7 +21,7 @@
           {% endif %}
           {% endfor %}
 
-          {% for p in site.pages %}
+          {% for p in sorted_pages %}
           {% if p.page == page.page %}
             {% if p.section %}{% else %}
             <a href="{{p.url}}" class="list-group-item {% if p.url == page.url %} active {% endif %}">{{ p.title }}</a>
