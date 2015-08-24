@@ -2,6 +2,9 @@
 
 This repository contains Jekyll templates, HTML and CSS files for the Fedora Developer Portal.
 
+If you are here to submit issue or PR regarding the content of the portal, please do so in the `content` repository:
+https://github.com/developer-portal/content.
+
 ## Local development instance
 
 Before fetching the sources from GitHub make sure you have the public keys uploaded to your GitHub account. Here is how to do it:  https://help.github.com/articles/error-permission-denied-publickey/.
