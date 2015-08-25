@@ -4,7 +4,7 @@ module Jekyll
   module LogoFilter
     def page_logo(url)
       path = Pathname.new(url).dirname
-      "#{path}/logo.png"
+      "/static/img/#{path}/logo.png"
     end
   end
 end
