@@ -20,11 +20,5 @@ Vagrant.configure(2) do |config|
 
   config.vm.synced_folder ".", "/vagrant", type: "rsync"
 
-  config.vm.provision "shell", inline: <<-SHELL
-sudo dnf group install "C Development Tools and Libraries" -y || :
-sudo dnf install ruby-devel zlib-devel libxml2-devel libxslt-devel nodejs -y || :
-gem install jekyll || :
-gem install nokogiri -- --use-system-libraries || :
-gem install jekyll-lunr-js-search || :
-SHELL
+  config.vm.provision "shell", path: "vagrant.sh"
 end
