@@ -13,6 +13,9 @@ github_username:  jekyll
 # Build settings
 markdown: kramdown
 
+# Dependencies
+gems: ['jekyll-lunr-js-search']
+
 # Special kramdown settings
 kramdown:
   input: GFM
