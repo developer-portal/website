@@ -7,6 +7,40 @@ https://github.com/developer-portal/content.
 
 ## Local development instance
 
+### Using a Docker container
+
+Docker container provides a simple way how to run the development instance of Developer Portal. Following command will start the Jekyll server in a container (with very similar output):
+
+```
+$ sudo docker run -it --rm developerportal/devel
+Configuration file: /website/_config.yml
+            Source: /website
+       Destination: /website/_site
+      Generating... 
+                    done.
+ Auto-regeneration: enabled for '/website'
+Configuration file: /website/_config.yml
+    Server address: http://172.17.1.16:8080/
+  Server running... press ctrl-c to stop.
+
+```
+
+The above command will serve the latest content available in Github repository. If you want to do some changes in a `website` repository and view them, you need to add argument `-v /path/to/your/repo:/website`:
+
+```
+$ sudo docker run -it --rm -v $PWD:/website developerportal/devel
+```
+
+In case you want to modify the `content` repository, you need to add argument `-v /path/to/content/repo:/website/content`:
+
+```
+$ sudo docker run -it --rm -v $PWD/content:/website/content developerportal/devel
+```
+ 
+
+
+### Using local installation
+
 Before fetching the sources from GitHub make sure you have the public keys uploaded to your GitHub account. Here is how to do it:  https://help.github.com/articles/error-permission-denied-publickey/.
 
 Then run:
