@@ -1,3 +1,4 @@
+#!/bin/bash
 # This script installs the necessary dependencies on Fedora
 
 sudo dnf group install "C Development Tools and Libraries" -y || :
