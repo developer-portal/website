@@ -8,7 +8,7 @@ RUN dnf -y update && \
     dnf -y install ruby-devel git nodejs iproute && \
     dnf -y group install "C Development Tools and Libraries"
     dnf -y clean all
-RUN gem install jekyll
+RUN gem install jekyll jekyll-lunr-js-search
 
 RUN git clone https://github.com/developer-portal/website
 
