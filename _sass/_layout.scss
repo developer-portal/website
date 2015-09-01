@@ -343,8 +343,6 @@ h3 a, h3 a:visited {
 
 .banner#devassistant {
   background-image: url('/static/img/noisy_grid.png') !important;
-  text-align: left;
-  vertical-align: middle;
   background-repeat: repeat;
   
   p,h2 {
@@ -356,6 +354,10 @@ h3 a, h3 a:visited {
   margin-bottom: 2em;
 }
 
-#blog-features article {
-  text-align: left;
+#blog-headlines {
+  background-image: url('/static/img/footer_lodyas.png') !important;
+  background-repeat: repeat;
+  color: white;
+  width: 100% !important;
+  padding: 22px 65px 30px 65px;
 }
