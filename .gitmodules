@@ -1,4 +1,4 @@
 [submodule "content"]
 	path = content
         branch = master
-	url = git@github.com:developer-portal/content.git
+	url = https://github.com/developer-portal/content.git
