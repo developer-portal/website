@@ -45,4 +45,17 @@ highlight_section: home
       </div>
     </div>
   </div>
+  <div class="row">
+      {% for p in site.pages %}
+	      {% if p.section == "tech-languages" %}
+	      <div class="media-left">
+	          <img style="height:80px" src="{{ p.page | page_logo }}">
+	      </div>
+	      <div class="media-body">
+	          <h3>{{ p.title }}</h3>
+	          <h3>{{ p.version }}</h3>
+	      </div>
+	      {% endif %}
+      {% endfor %}
+  </div>
 </div>
