@@ -321,3 +321,37 @@ h3 a, h3 a:visited {
   color: $fedora-blue;
   font-weight: semibold;
 }
+
+#front-nav {
+  margin-top: 7em;
+}
+
+.banner {
+  width: 100% !important;
+  margin-left: 0;
+  margin-right: 0;
+  height: 240px;
+  
+  .banner-body {
+    padding: 32px 5px 24px 5px;
+  }
+
+  img {
+    padding-top: 14px;
+  }
+}
+
+.banner#devassistant {
+  background-image: url('/static/img/noisy_grid.png') !important;
+  text-align: left;
+  vertical-align: middle;
+  background-repeat: repeat;
+  
+  p,h2 {
+	text-align: left;
+  }
+}
+
+.container + .container {
+  margin-bottom: 2em;
+}
