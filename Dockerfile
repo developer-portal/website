@@ -5,14 +5,24 @@ MAINTAINER Vaclav Pavlin <vpavlin@redhat.com>
 # We need git to get a website and a content of Developer Portal
 # Nodejs is needed by jekyll and iproute provides ip command which let's us to set host for jekyll properly
 RUN dnf -y update && \
-    dnf -y install ruby-devel git nodejs iproute && \
-    dnf -y group install "C Development Tools and Libraries"
+    dnf -y install ruby-devel git nodejs iproute zlib-devel libxml2-devel libxslt-devel rubygem-nokogiri && \
+    dnf -y group install "C Development Tools and Libraries" && \
     dnf -y clean all
-RUN gem install jekyll jekyll-lunr-js-search
+
+RUN groupadd dp && useradd -g dp -u 1000 dp
+
+RUN mkdir /opt/developerportal && chown dp:dp /opt/developerportal
+WORKDIR /opt/developerportal
+
+USER dp
+
+RUN gem install jekyll
+RUN gem install nokogiri -- --use-system-libraries
+RUN gem install jekyll-lunr-js-search
 
 RUN git clone https://github.com/developer-portal/website
 
-WORKDIR website
+WORKDIR /opt/developerportal/website
 
 # Latest content for the Developer Portal is pulled automatically via submodules
 RUN git submodule init && \
@@ -23,11 +33,9 @@ EXPOSE 8080
 
 VOLUME [ /website, /website/content ]
 
-USER 1000
-
 # Update the content on every run of the container
 CMD cd content; \
-    git checkout master &> /dev/null; \
-    git pull &> /dev/null; \
+    git checkout master; \
+    git pull; \
     cd ..; \
-    jekyll serve --force_polling -P 8080 -H $(ip addr show eth0 | sed -n 's/inet \([^ /]*\).*/\1/p')
+    /home/dp/bin/jekyll serve --force_polling -P 8080 -H $(ip addr show eth0 | sed -n 's/inet \([^ /]*\).*/\1/p')
