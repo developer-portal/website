@@ -9,10 +9,11 @@ https://github.com/developer-portal/content.
 
 ### Using Vagrant
 
-To start developing clone this repository and run `vagrant up`. Afterwards just start the Jekyll server. Note that you need 0.0.0.0 as a host instead of loopback.
+To start developing clone the *website* and *content* repositories and run `vagrant up`. Afterwards just start the Jekyll server at 0.0.0.0 (instead of default loopback).
 
 ```bash
 $ git clone https://github.com/developer-portal/website.git && cd website
+$ git clone https://github.com/developer-portal/content.git
 $ vagrant up
 $ vagrant ssh
 vagrant$ cd /vagrant
@@ -54,8 +55,6 @@ In case you want to modify the `content` repository, you need to add argument `-
 $ sudo docker run -it --rm -v $PWD/content:/website/content developerportal/devel
 ```
 
-
-
 ### Using local installation
 
 Before fetching the sources from GitHub make sure you have the public keys uploaded to your GitHub account. Here is how to do it:  https://help.github.com/articles/error-permission-denied-publickey/.
@@ -71,7 +70,7 @@ $ jekyll serve --force_polling
 
 `jekyll serve --force_polling` will start the development server at `http://127.0.0.1:4000/` and regenerate any modified files for you. If you don't have Jekyll installed, here is the installation guide: http://jekyllrb.com/docs/installation/.
 
-If you want to **install Jekyll on Fedora** with Ruby Gems, you can use our content to learn how: https://github.com/developer-portal/content/blob/master/tech/languages/ruby/gems-installation.md
+If you want to **install Jekyll on Fedora**, you can just run the `./setup.sh` script included in this repository.
 
 To update the content/ directory fetched by `git submodule update` just switch to that directory, make sure you are on the master branch and pull the latest stuff:
 
