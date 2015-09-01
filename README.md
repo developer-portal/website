@@ -20,6 +20,8 @@ $ jekyll serve --force_polling
 
 `jekyll serve --force_polling` will start the development server at `http://127.0.0.1:4000/` and regenerate any modified files for you. If you don't have Jekyll installed, here is the installation guide: http://jekyllrb.com/docs/installation/.
 
+If you want to install Jekyll on Fedora with Ruby Gems, you can use our content to learn how: https://github.com/developer-portal/content/blob/master/tech/languages/ruby/gems-installation.md
+
 To update the content/ directory fetched by `git submodule update` just switch to that directory, make sure you are on the master branch and pull the latest stuff:
 
 ```bash
