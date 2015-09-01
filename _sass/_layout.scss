@@ -233,7 +233,15 @@
     }
 }
 
-
+.footer {
+    background-color: #e6e6e6;
+    color: #777;
+    font-size: 13px;
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 30px;
+}
 
 /**
  * Page content
@@ -351,7 +359,7 @@ h3 a, h3 a:visited {
 }
 
 .container + .container {
-  margin-bottom: 2em;
+  padding-bottom: 2em;
 }
 
 #blog-headlines {
@@ -359,5 +367,5 @@ h3 a, h3 a:visited {
   background-repeat: repeat;
   color: white;
   width: 100% !important;
-  padding: 22px 65px 30px 65px;
+  padding: 22px 65px;
 }
