@@ -7,6 +7,10 @@ https://github.com/developer-portal/content.
 
 ## Local development instance
 
+- [Using Vagrant](https://github.com/developer-portal/website#using-vagrant)
+- [Using a Docker container](https://github.com/developer-portal/website#using-a-docker-container)
+- [Using local installation](https://github.com/developer-portal/website#using-local-installation)
+
 ### Using Vagrant
 
 To start developing clone the *website* and *content* repositories and run `vagrant up`. Afterwards just start the Jekyll server at 0.0.0.0 (instead of default loopback).
