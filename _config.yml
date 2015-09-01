@@ -14,7 +14,9 @@ github_username:  jekyll
 markdown: kramdown
 
 # Dependencies
-gems: ['jekyll-lunr-js-search']
+gems:
+  - jekyll-lunr-js-search
+  - jekyll-sitemap
 
 # Special kramdown settings
 kramdown:
