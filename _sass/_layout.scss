@@ -311,3 +311,13 @@
         }
     }
 }
+
+h3 {
+  margin-top: 1.2em;
+  margin-bottom: 1.6em;
+}
+
+h3 a, h3 a:visited {
+  color: $fedora-blue;
+  font-weight: semibold;
+}

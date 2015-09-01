@@ -1,0 +1,59 @@
+<div class="container" id="splash">
+  <div class="row" id="top">
+    <div class="col-sm-2" id="logo-col">
+      <div class="text-center">
+        <a href="/">
+          <img src="/static/logo_white.png" style="height: 46px; width: 152px;">
+        </a>
+      </div>
+    </div>
+    <div class="col-sm-8">
+	  <nav>	
+        <ul class="nav navbar-nav">
+          <li class="{% if page.highlight_section == "home" %} active {%endif%}">
+            <a href="/">Home</a>
+          </li>
+          <li class="{% if page.highlight_section == "start" %} active {%endif%}">
+            <a href="/start.html">Start</a>
+          </li>
+          <li class="{% if page.highlight_section == "tools" %} active {%endif%}">
+            <a href="/tools.html">Tools</a>
+          </li>
+          <li class="{% if page.highlight_section == "tech" %} active {%endif%}">
+            <a href="/tech.html">Technology</a>
+          </li>
+          <li class="{% if page.highlight_section == "deployment" %} active {%endif%}">
+            <a href="/deployment.html">Deployment</a>
+          </li>
+          <!--
+          <li class="{% if page.highlight_section == "resources" %} active {%endif%}">
+            <a href="/">Resources</a>
+          </li>
+          <li class="{% if page.highlight_section == "blogs" %} active {%endif%}">
+            <a href="/">Blogs</a>
+          </li>
+          -->
+        </ul>
+      </nav>
+    </div>
+    <div class="col-sm-2">
+      <div class="input-group" id="search">
+        <input type="text" class="form-control" placeholder="Search for...">
+        <span class="input-group-btn">
+          <button class="btn btn-default glyphicon glyphicon-search" type="button" aria-hidden="true"></button>
+        </span>
+      </div>
+    </div>
+  </div>
+  <div class="row" id="banner">
+	  <div class="col-sm-12">
+		<h1>Take control of your world. Build it with Fedora.</h1>
+		<p>Build your software using truly open and powerful technology backed by the upstream open source community. Do more with your devices than the manufacturers ever dared dream.</p>
+	  </div>
+  </div>
+  <div class="row" id="attribution">
+    <div class="col-sm-12">
+      <a href="https://www.flickr.com/photos/duald/7423940266/">Union Station Abstract</a> by <a href="https://www.flickr.com/photos/duald/">DualD FlipFlop</a> on Flickr, CC-BY-2.0
+    </div>
+  </div>
+</div>
