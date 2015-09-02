@@ -11,16 +11,18 @@ RUN dnf -y update && \
 
 RUN groupadd dp && useradd -g dp -u 1000 dp
 
-RUN mkdir /opt/developerportal && chown dp:dp /opt/developerportal
+RUN mkdir /opt/developerportal
 WORKDIR /opt/developerportal
+
+ADD . website/
+RUN chown -R dp:dp /opt/developerportal
 
 USER dp
 
 RUN gem install jekyll
 RUN gem install nokogiri -- --use-system-libraries
-RUN gem install jekyll-lunr-js-search
+RUN gem install jekyll-lunr-js-search jekyll-sitemap
 
-RUN git clone https://github.com/developer-portal/website
 
 WORKDIR /opt/developerportal/website
 

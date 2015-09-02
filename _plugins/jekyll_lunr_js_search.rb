@@ -1,3 +1,5 @@
+require_relative './permalinks.rb'
+
 require 'fileutils'
 require 'net/http'
 require 'json'
@@ -240,8 +242,8 @@ module Jekyll
     end
   end
 end
-module Jekyll
-  module LunrJsSearch
-    VERSION = "0.3.0"
-  end
-end
+#module Jekyll
+#  module LunrJsSearch
+#    VERSION = "0.3.0"
+#  end
+#end
