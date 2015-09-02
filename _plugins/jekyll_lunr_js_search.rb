@@ -1,3 +1,5 @@
+require_relative './permalinks.rb'
+
 require 'fileutils'
 require 'net/http'
 require 'json'
