@@ -24,6 +24,24 @@ kramdown:
   # This is important to keep the new lines in block codes.
   hard_wrap: false
 
+# Let's not ship any of these unnecessary files
+exclude:
+  - Dockerfile
+  - Vagrantfile
+  - CONTRIBUTING.md
+  - README.md
+  - "*.sh"
+  - "*.rb"
+  - "*.txt"
+  - "static/**/*.html"
+  - "**/LICENSE"
+  - "**/LICENSE-MIT"
+  - "**/README.md"
+  - "**/Readme.md"
+  - "**/CONTRIBUTING.md"
+  - "**/COPYING"
+  - "**/README.md"
+
 defaults:
   -
     scope:
