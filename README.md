@@ -49,16 +49,16 @@ Configuration file: /website/_config.yml
 
 ```
 
-The above command will serve the latest content available in Github repository. If you want to do some changes in a `website` repository and view them, you need to add argument `-v /path/to/your/repo:/website`:
+The above command will serve the latest content available in Github repository. If you want to do some changes in a `website` repository and view them, you need to add argument `-v /path/to/your/repo:/opt/developerportal/website`:
 
 ```
-$ sudo docker run -it --rm -v $PWD:/website developerportal/devel
+$ sudo docker run -it --rm -v $PWD:/opt/developerportal/website developerportal/devel
 ```
 
-In case you want to modify the `content` repository, you need to add argument `-v /path/to/content/repo:/website/content`:
+In case you want to modify the `content` repository, you need to add argument `-v /path/to/content/repo:/opt/developerportal/website/content`:
 
 ```
-$ sudo docker run -it --rm -v $PWD/content:/website/content developerportal/devel
+$ sudo docker run -it --rm -v $PWD/content:/opt/developerportal/website/content developerportal/devel
 ```
 
 ### Using local installation
