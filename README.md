@@ -21,8 +21,10 @@ $ git clone https://github.com/developer-portal/content.git
 $ vagrant up
 $ vagrant ssh
 vagrant$ cd /vagrant
-vagrant$ jekyll serve --force_polling -H 0.0.0.0 -p 4000
+vagrant$ jekyll serve --force_polling -H 0.0.0.0
 ```
+
+Once done, you can open http://127.0.0.1:4000/ on your host to see the generated site.
 
 We use `rsync` by default so you need to run `vagrant rsync-auto` on your host to keep the sources synced.
 
