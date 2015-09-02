@@ -18,7 +18,7 @@ USER dp
 
 RUN gem install jekyll
 RUN gem install nokogiri -- --use-system-libraries
-RUN gem install jekyll-lunr-js-search
+RUN gem install jekyll-lunr-js-search jekyll-sitemap
 
 RUN git clone https://github.com/developer-portal/website
 
