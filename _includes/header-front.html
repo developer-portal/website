@@ -1,14 +1,14 @@
 <div class="container" id="splash">
   <div class="row" id="top">
-    <div class="col-sm-2" id="logo-col">
-      <div class="text-center">
-        <a href="/">
-          <img src="/static/logo_white.png" style="height: 46px; width: 152px;">
-        </a>
-      </div>
-    </div>
-    <div class="col-sm-8">
-	  <nav>	
+    <nav class="navbar navbar-default navbar-fixed-top">
+	  <div class="col-sm-2" id="logo-col">
+        <div class="text-center">
+          <a href="/">
+            <img src="/static/logo_white.png" style="height: 46px; width: 152px;">
+          </a>
+        </div>
+      </div>	
+	  <div class="col-sm-8">
         <ul class="nav navbar-nav">
           <li class="{% if page.highlight_section == "home" %} active {%endif%}">
             <a href="/">Home</a>
@@ -34,16 +34,16 @@
           </li>
           -->
         </ul>
-      </nav>
-    </div>
-    <div class="col-sm-2">
-      <div class="input-group" id="search">
-        <input type="text" class="form-control" placeholder="Search for...">
-        <span class="input-group-btn">
-          <button class="btn btn-default glyphicon glyphicon-search" type="button" aria-hidden="true"></button>
-        </span>
       </div>
-    </div>
+      <div class="col-sm-2">
+        <div class="input-group" id="search">
+          <input type="text" class="form-control" placeholder="Search for...">
+          <span class="input-group-btn">
+            <button class="btn btn-default glyphicon glyphicon-search" type="button" aria-hidden="true"></button>
+          </span>
+        </div>
+      </div>
+    </nav>
   </div>
   <div class="row" id="banner">
 	  <div class="col-sm-12">

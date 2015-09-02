@@ -28,6 +28,19 @@
  * Site nav
  */
  
+navbar,
+.navbar-default,
+.navbar-fixed-top,
+.navbar li.active a {
+  background: transparent !important;
+  border: none !important;
+}
+ 
+.navbar {
+  margin-top: 15px;
+  margin-bottom: 15px;
+} 
+ 
 #top {
    padding-top: 20px;
 }
