@@ -31,11 +31,8 @@ RUN git submodule init && \
 # Jekyll runs on port 80
 EXPOSE 8080
 
-VOLUME [ /website, /website/content ]
+
+VOLUME [ /opt/developerportal/website, /opt/developerportal/website/content ]
 
 # Update the content on every run of the container
-CMD cd content; \
-    git checkout master; \
-    git pull; \
-    cd ..; \
-    /home/dp/bin/jekyll serve --force_polling -P 8080 -H $(ip addr show eth0 | sed -n 's/inet \([^ /]*\).*/\1/p')
+CMD /home/dp/bin/jekyll serve --force_polling -P 8080 -H $(ip addr show eth0 | sed -n 's/inet \([^ /]*\).*/\1/p')
