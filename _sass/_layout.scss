@@ -369,3 +369,47 @@ h3 a, h3 a:visited {
   width: 100% !important;
   padding: 22px 65px;
 }
+
+#blog-features,
+#blog-headlines {
+  h2 span {
+    background-color: #3c6eb4 !important;
+    padding: 0px 5px 2px;
+    text-transform: uppercase;
+    font-size: 45%;
+    color: white;
+  }
+  
+  h3 {
+    font-face: "Open Sans" !important;
+    font-weight: 600 !important;
+    font-size: 150%;
+  }
+  
+  p {
+    color: #a5a8aa;
+  }
+  
+  p.byline {
+    color: #6f7276;
+  }
+}
+
+#blog-features {
+
+  p {
+    color: #6f7276;
+  }
+  
+  p.byline {
+    color: #60605b;
+    font-size: 14pt;
+    margin-top: -8px;
+  }
+  
+  p.date {
+    font-style: italic;
+    color: #a5a8aa;
+    margin-top: -8px;
+  }
+}
