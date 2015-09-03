@@ -1,25 +1,17 @@
-{% for p in site.pages %}
-{% if p.section == "start" %}
-<div class="title container" id="{{ p.category-name }}">
+<div class="title container" id="{{ include.name.category-name }}">
   <div class="container">
     <div class="row">
 	  <div class="col-sm-4">
-		<h1>{{ p.title }}</h1>
+		<h1>{{ include.name }}</h1>
 	  </div>
 	  <div class="col-sm-8">
-		<p>{{ p.description }}</p>
+		<p>{{ include.name.description }}</p>
 	  </div>
     </div>
-    {% endif %}
-    {% endfor %}
-    {% for p in site.pages %}
-    {% if p.section == "start" || p.section == "start-sw" || p.section == "start-hw" || p.section == "start-tips" %}  
     <div class="row" id="attribution">
       <div class="col-sm-12">	
-        <a href="https://www.flickr.com/photos/catt1788/6335937959/">Tools of the Trade</a> by <a href="https://www.flickr.com/photos/catt1788/">Cat Burston</a> on Flickr, CC-BY-2.0
+        <a href="{{ include.name.photo-link }}">{{ include.name.attribution }}</a>
       </div>
     </div>
-    {% endif %}
-    {% endfor %}
   </div>
 </div>
