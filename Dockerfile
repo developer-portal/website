@@ -28,7 +28,10 @@ WORKDIR /opt/developerportal/website
 
 # Latest content for the Developer Portal is pulled automatically via submodules
 RUN git submodule init && \
-    git submodule update
+    git submodule update && \
+    cd content && \
+    git checkout master && \
+    git pull
 
 # Jekyll runs on port 80
 EXPOSE 8080
