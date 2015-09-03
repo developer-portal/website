@@ -1,51 +1,45 @@
-<div class="container">
-  <div class="row">
-    <div class="col-sm-12">
-      <div style="margin-bottom: 6px; margin-top: 6px" class="alert alert-warning">
-        <span class="pficon pficon-warning-triangle-o"></span>
-        <strong> This website is just a prototype. </strong>
-        For more information about this project, please visit <a href="https://fedoraproject.org/wiki/Websites/Developer"> Fedora Developer Portal project wiki</a>. Ideas and contributions are welcome!
-      </div>
-    </div>
-  </div>
-</div>
-<div class="container">
-  <div class="row">
-    <div class="col-sm-12">
+<div class="container" id="header">
+  <div class="row" id="top">
+    <div class="col-sm-2" id="logo-col">
       <div class="text-center">
         <a href="/">
-          <img src="/static/logo.png" style="height:90px; margin: 20px">
+          <img src="/static/logo.png" style="height: 46px; width: 152px;">
         </a>
       </div>
     </div>
+    <div class="col-sm-8">
+	  <nav>	
+        <ul class="nav navbar-nav">
+          <li class="{% if page.highlight_section == "start" %} active {%endif%}">
+            <a href="/start.html">Start A Project</a>
+          </li>
+          <li class="{% if page.highlight_section == "tools" %} active {%endif%}">
+            <a href="/tools.html">Get Tools</a>
+          </li>
+          <li class="{% if page.highlight_section == "tech" %} active {%endif%}">
+            <a href="/tech.html">Technology Overview</a>
+          </li>
+          <li class="{% if page.highlight_section == "deployment" %} active {%endif%}">
+            <a href="/deployment.html">Deploy Your Project</a>
+          </li>
+          <!--
+          <li class="{% if page.highlight_section == "resources" %} active {%endif%}">
+            <a href="/">Resources</a>
+          </li>
+          <li class="{% if page.highlight_section == "blogs" %} active {%endif%}">
+            <a href="/">Blogs</a>
+          </li>
+          -->
+        </ul>
+      </nav>
+    </div>
+    <div class="col-sm-2">
+      <div class="input-group" id="search">
+        <input type="text" class="form-control" placeholder="Search for...">
+        <span class="input-group-btn">
+          <button class="btn btn-default glyphicon glyphicon-search" type="button" aria-hidden="true"></button>
+        </span>
+      </div>
+    </div>
   </div>
 </div>
-<nav class="navbar navbar-default">
-  <div class="container">
-    <ul class="nav navbar-nav">
-      <li class="{% if page.highlight_section == "home" %} active {%endif%}">
-        <a href="/">Home</a>
-      </li>
-      <li class="{% if page.highlight_section == "start" %} active {%endif%}">
-        <a href="/start.html">Start</a>
-      </li>
-      <li class="{% if page.highlight_section == "tools" %} active {%endif%}">
-        <a href="/tools.html">Tools</a>
-      </li>
-      <li class="{% if page.highlight_section == "tech" %} active {%endif%}">
-        <a href="/tech.html">Technology</a>
-      </li>
-      <li class="{% if page.highlight_section == "deployment" %} active {%endif%}">
-        <a href="/deployment.html">Deployment</a>
-      </li>
-      <!--
-      <li class="{% if page.highlight_section == "resources" %} active {%endif%}">
-        <a href="/">Resources</a>
-      </li>
-      <li class="{% if page.highlight_section == "blogs" %} active {%endif%}">
-        <a href="/">Blogs</a>
-      </li>
-      -->
-    </ul>
-  </div>
-</nav>

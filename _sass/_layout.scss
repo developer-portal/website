@@ -3,25 +3,44 @@
  */
  
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600,300);
+
+#logo-col img {
+  margin-bottom: 15px;
+}
  
 /* Splash gradient background */
-#splash {
+#splash, .title {
   background: rgb(60, 109, 179) !important;
   background: -moz-linear-gradient(90deg, rgb(60, 109, 179) 18%, rgb(50, 86, 145) 99%);
   background: -webkit-linear-gradient(90deg, rgb(60, 109, 179) 18%, rgb(50, 86, 145) 99%);
   background: -o-linear-gradient(90deg, rgb(60, 109, 179) 18%, rgb(50, 86, 145) 99%);
   background: -ms-linear-gradient(90deg, rgb(60, 109, 179) 18%, rgb(50, 86, 145) 99%);
   background: linear-gradient(180deg, rgb(60, 109, 179) 18%, rgb(50, 86, 145) 99%);
-  min-height: 370px;
-  background-image: url('/static/img/splash_union.png') !important;
-  margin-left: 0px;
-  margin-right: 0px;
-  width: 100%;
+  background-image: url('/static/img/titles/title_front.png') !important;
+  
+  h1 {
+    font-family: "Open Sans Semibold";
+    text-shadow: 0px 3px 1px rgba(37, 58, 102, 1);
+    color: white;
+  }
+  
+  p {
+    color: white;
+  }
 }
 
-#splash h1 {
-  font-family: "Open Sans Semibold";
-  text-shadow: 0px 3px 1px rgba(37, 58, 102, 1);
+.title#start { 
+  background-image: url('/static/img/titles/title_start.png') !important; 
+}
+
+#splash, .title, #header {
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+  width: 100% !important;
+}
+
+#splash {
+  min-height: 370px;
 }
 
 /***
@@ -53,7 +72,7 @@
   margin-top: -2px !important;
 }
 
-#splash #search {
+#search {
   margin-top: 10px !important;
 }
 
