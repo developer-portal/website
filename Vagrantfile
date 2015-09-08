@@ -3,7 +3,7 @@
 
 # Start the Jekyll server for local development on the guest:
 #   cd /vagrant
-#   jekyll serve --force_polling -H 0.0.0.0 -p 4000
+#   jekyll serve --force_polling -H 0.0.0.0
 
 Vagrant.configure(2) do |config|
   config.vm.box = "fedora-22-cloud"
