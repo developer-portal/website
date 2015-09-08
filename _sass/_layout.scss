@@ -34,6 +34,21 @@
 .title#tech {   background-image: url('/static/img/titles/title_tech.png') !important; }
 .title#deploy {   background-image: url('/static/img/titles/title_deploy.png') !important; }
 
+.title {
+  height: 140px;
+
+  #page-description p {
+  font-size: 14pt !important;
+  height: 115px;
+  display: table-cell !important;
+  vertical-align: middle !important;
+  }
+
+  #page-title {
+  padding-top: 10px;
+  } 
+}
+
 
 #splash, .title, #header {
   margin-left: 0px !important;
