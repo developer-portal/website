@@ -8,7 +8,10 @@
     <div class="title container" id="{{ page.category-name }}">
       <div class="container">
 	    <div class="row">
-		  <div class="col-sm-6" id="page-title">
+		  <div class="col-sm-1" id="page-logo">
+		    <img style="width:100px; padding-top: 30px; padding-right: 20px;" src="{{ p.page | page_logo }}">
+		  </div>	
+		  <div class="col-sm-5" id="page-title">
 	        <h1>{{ page.title }}</h1>
 		  </div>
 		  <div class="col-sm-6" id="page-description">
