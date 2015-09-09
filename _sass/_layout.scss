@@ -480,12 +480,12 @@ h2 {
     text-decoration: none;
   }
   
-  .panel-link:hover {
-    text-decoration: none !important;
-  }
-
-  .panel-link:hover h2 {
+}
+  
+.panel-link:hover {
+  text-decoration: none !important;
+  
+  h2 {
     text-decoration: underline;
   }
-
 }
