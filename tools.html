@@ -10,12 +10,12 @@ photo-link: https://www.flickr.com/photos/rauckhaus/8638556209/
 ---
 <div class="row">
   <div class="col-sm-12">
-    <h1> Tools Overviev </h1>
+    <h2> Development Tools Overview </h2>
   </div>
   {% for p in site.pages %}
   {% if p.section == "tools" %}
   <div class="col-sm-6">
-    <a href="{{ p.url }}">
+    <a class="panel-link" href="{{ p.url }}">
       <div class="panel panel-default">
         <div class="panel-body">
           <div class="media">
@@ -23,7 +23,7 @@ photo-link: https://www.flickr.com/photos/rauckhaus/8638556209/
               <img style="height:100px" src="{{ p.page | page_logo }}">
             </div>
             <div class="media-body">
-              <h2>{{ p.title }}</h2>
+              <h3>{{ p.title }}</h3>
               <p>{{ p.description }}</p>
             </div>
           </div>
