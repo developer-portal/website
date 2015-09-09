@@ -35,7 +35,8 @@
 .title#deploy {   background-image: url('/static/img/titles/title_deploy.png') !important; }
 
 .title {
-  height: 140px;
+  height: 180px;
+  margin-bottom: 30px;
 
   #page-description p {
   font-size: 14pt !important;
@@ -104,10 +105,14 @@
   padding: 50px 100px;
 }
 
-#attribution, #attribution a {
-  color: white;
-  font-size: .9em;
-  margin-top: 32px;
+#attribution {
+
+  padding-top: 40px;
+  
+  a {
+    color: white;
+    font-size: .9em;
+  }
 }
 
 #attribution {
@@ -461,7 +466,6 @@ h2 {
   font-weight: 700;
   color: #888;
   padding-bottom: 14px;
-  padding-top: 14px;
 }
 
 .panel {
