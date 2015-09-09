@@ -11,12 +11,12 @@ photo-link: https://www.flickr.com/photos/catt1788/6335937959/
 ---
 <div class="row">
   <div class="col-sm-12">
-    <h2> Application </h2>
+    <h2> Software Application Creation Guides </h2>
   </div>
   {% for p in site.pages %}
   {% if p.section == "start-sw" %}
   <div class="col-sm-6">
-    <a href="{{ p.url }}">
+    <a class="panel-link" href="{{ p.url }}">
       <div class="panel panel-default">
         <div class="panel-body">
           <div class="media">
@@ -35,36 +35,36 @@ photo-link: https://www.flickr.com/photos/catt1788/6335937959/
   {% endif %}
   {% endfor %}
   <div class="col-sm-12">
-    <h2> Collaboration </h2>
-  </div>
-  {% for p in site.pages %}
-  {% if p.section == "start-tips" %}
-  <div class="col-sm-6">
-    <a href="{{ p.url }}">
-      <div class="panel panel-default">
-        <div class="panel-body">
-          <div class="media">
-            <div class="media-left">
-              <img src="{{ p.page_logo }}">
-            </div>
-            <div class="media-body">
-              <h2>{{ p.title }}</h2>
-              <p>{{ p.description }}</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </a>
-  </div>
-  {% endif %}
-  {% endfor %}
-  <div class="col-sm-12">
-    <h2> Hardware Devices </h2>
+    <h2> Hardware Device Project Creation Guides </h2>
   </div>
   {% for p in site.pages %}
   {% if p.section == "start-hw" %}
   <div class="col-sm-6">
-    <a href="{{ p.url }}">
+    <a class="panel-link" href="{{ p.url }}">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <div class="media">
+            <div class="media-left">
+              <img src="{{ p.page_logo }}">
+            </div>
+            <div class="media-body">
+              <h2>{{ p.title }}</h2>
+              <p>{{ p.description }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </a>
+  </div>
+  {% endif %}
+  {% endfor %}
+  <div class="col-sm-12">
+    <h2> Project Collaboration Guides </h2>
+  </div>
+  {% for p in site.pages %}
+  {% if p.section == "start-tips" %}
+  <div class="col-sm-6">
+    <a class="panel-link" href="{{ p.url }}">
       <div class="panel panel-default">
         <div class="panel-body">
           <div class="media">
