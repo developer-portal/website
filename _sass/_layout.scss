@@ -440,6 +440,8 @@ h3 a, h3 a:visited {
   color: white;
   width: 100% !important;
   padding: 22px 65px;
+  padding-bottom: 80px !important;
+  margin-bottom: -80px;
 }
 
 #blog-features,
@@ -450,6 +452,12 @@ h3 a, h3 a:visited {
     text-transform: uppercase;
     font-size: 45%;
     color: white;
+    padding-bottom: 0px;
+  }
+  
+  h2 {
+  font-size: 2.2em !important;
+  padding-bottom: 0px;
   }
   
   h3 {
