@@ -290,8 +290,30 @@
     padding-left: 0;
     padding-right: 0;
     padding-top: 30px;
-}
+    font-family: "Open sans"; 
 
+  .widget-title {
+    color: #8d8d8d;
+    font-size: 17px;
+    font-weight: bold;
+    margin: 0 0 20px 0;
+    text-transform: uppercase;
+  }
+
+  .widget-body {
+    color: #777;
+    font-size: 13px;
+  }
+
+   dd {
+    line-height: 1.6;
+    margin-left: 0;
+  }
+
+  a {
+    color: #000 !important;
+  }
+}
 /**
  * Page content
  */
