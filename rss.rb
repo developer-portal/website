@@ -105,6 +105,6 @@ INDEX_FILE = File.expand_path('_site/index.html', '.')
 contents = File.open(INDEX_FILE).read
 contents.gsub!(/<!-- BLOG_HEADLINES_START -->.*<!-- BLOG_HEADLINES_END -->/im, "\\1#{blog_posts}\\3")
 
-File.open(File.expand_path(INDEX_FILE, '.'), 'w') { |file|
+File.open(INDEX_FILE, 'w') { |file|
   file.write(contents)
 }
