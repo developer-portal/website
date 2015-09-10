@@ -20,4 +20,18 @@
   <script src="/static/components/bootstrap/dist/js/bootstrap.min.js"></script>
   <script src="/static/components/datatables/media/js/jquery.dataTables.js"></script>
   <script src="/static/js/patternfly.min.js"></script>
+
+  <!-- Site search -->
+  <script src="/js/search.min.js" type="text/javascript" charset="utf-8"></script>
+  <script type="text/javascript">
+    $(function() {
+      $('#search-query').lunrSearch({
+        indexUrl: '/js/index.json',   // Url for the .json file containing search index data
+        results : '#search-results',  // selector for containing search results element
+        entries : '.entries',         // selector for search entries containing element (contained within results above)
+        template: '#search-results-template'  // selector for Mustache.js template
+      });
+    });
+  </script>
+
 </head>

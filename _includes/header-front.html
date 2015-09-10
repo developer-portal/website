@@ -8,7 +8,7 @@
       </div>
     </div>
     <div class="col-sm-8">
-	  <nav>	
+	  <nav>
         <ul class="nav navbar-nav">
           <li class="{% if page.highlight_section == "start" %} active {%endif%}">
             <a href="/start.html">Start A Project</a>
@@ -34,12 +34,7 @@
       </nav>
     </div>
     <div class="col-sm-2">
-      <div class="input-group" id="search">
-        <input type="text" class="form-control" placeholder="Search for...">
-        <span class="input-group-btn">
-          <button class="btn btn-default glyphicon glyphicon-search" type="button" aria-hidden="true"></button>
-        </span>
-      </div>
+      {% include search.html %}
     </div>
   </div>
   <div class="row" id="banner">
