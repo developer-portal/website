@@ -1,13 +1,10 @@
 {% if page.url != '/search.html' %}
-<div class="input-group" id="search">
-  <div id="search">
-    <form action="/search.html" method="get">
-      <input type="text" id="search-query" class="form-control" name="q" placeholder="Search" autocomplete="off">
-      <span class="input-group-btn">
-        <button class="btn btn-default glyphicon glyphicon-search" type="submit" aria-hidden="true"></button>
-      </span>
-    </form>
-  </div>
+  <form class="input-group" id="search" action="/search.html" method="get">
+    <input type="text" id="search-query" class="form-control" name="q" placeholder="Search" autocomplete="off">
+    <span class="input-group-btn">
+      <button class="btn btn-default glyphicon glyphicon-search" type="submit" aria-hidden="true"></button>
+    </span>
+  </form>
 
   <section id="search-results" style="display: none;">
     <div class="entries">
