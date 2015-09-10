@@ -1,7 +1,11 @@
+{% if page.url != '/search.html' %}
 <div class="input-group" id="search">
   <div id="search">
-    <form action="/search" method="get">
+    <form action="/search.html" method="get">
       <input type="text" id="search-query" class="form-control" name="q" placeholder="Search" autocomplete="off">
+      <span class="input-group-btn">
+        <button class="btn btn-default glyphicon glyphicon-search" type="submit" aria-hidden="true"></button>
+      </span>
     </form>
   </div>
 
@@ -19,11 +23,5 @@
     {{/entries}}
   </script>
   {% endraw %}
-
-  <!--
-  Uncomment this once the separate /search page is created
-
-  <span class="input-group-btn">
-    <button class="btn btn-default glyphicon glyphicon-search" type="button" aria-hidden="true"></button>
-  </span>-->
 </div>
+{% endif %}

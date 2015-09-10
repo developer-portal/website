@@ -2,26 +2,15 @@
 layout: general
 ---
 
-<script type="text/javascript">
-  $(function() {
-    $('#search-query').lunrSearch({
-      indexUrl: '/js/index.json',   // Url for the .json file containing search index data
-      results : '#search-results',  // selector for containing search results element
-      entries : '.entries',         // selector for search entries containing element (contained within results above)
-      template: '#search-results-template'  // selector for Mustache.js template
-    });
-  });
-</script>
-
 <div id="search">
-  <form action="/search" method="get">
-    <input type="text" id="search-query" name="q" placeholder="Search" autocomplete="off">
+  <form action="/search.html" method="get">
+    <input type="text" id="search-query" class="form-control" name="q" placeholder="Search" autocomplete="off">
   </form>
 </div>
 
-<section id="search-results" style="display: none;">
-  <p>Search results</p>
-  <div class="entries">
+<section id="search-results">
+  <h2>Search results</h2>
+  <div class="entries" style="display: block; position: static;">
   </div>
 </section>
 
@@ -36,6 +25,3 @@ layout: general
   {{/entries}}
 </script>
 {% endraw %}
-
-
-<script src="/js/search.min.js" type="text/javascript" charset="utf-8"></script>
