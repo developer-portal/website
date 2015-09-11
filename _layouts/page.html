@@ -9,13 +9,31 @@
       <div class="container">
 	    <div class="row">
 		  <div class="col-sm-1" id="page-logo">
-		    <img style="width:100px; padding-top: 30px; padding-right: 20px;" src="{{ p.page | page_logo }}">
+                      {% for p in site.pages %}
+                      {% if p.page == page.page %}
+                        {% if p.section %}
+                          <img style="width:100px; padding-top: 30px; padding-right: 20px;" src="{{ p.page | page_logo }}">
+                        {% endif %}
+                      {% endif %}
+                      {% endfor %}
 		  </div>	
 		  <div class="col-sm-5" id="page-title">
-	        <h1>{{ page.title }}</h1>
+                      {% for p in site.pages %}
+                      {% if p.page == page.page %}
+                        {% if p.section %}
+                          <h1>{{ p.title }}</h1>
+                        {% endif %}
+                      {% endif %}
+                      {% endfor %}
 		  </div>
 		  <div class="col-sm-6" id="page-description">
-		    <p>{{ page.description }}</p>
+                      {% for p in site.pages %}
+                      {% if p.page == page.page %}
+                        {% if p.section %}
+                          <p>{{ p.description }}</p>
+                        {% endif %}
+                      {% endif %}
+                      {% endfor %}
 	      </div>
 	    </div>
       </div>
