@@ -14,7 +14,7 @@ Vagrant.configure(2) do |config|
 
   config.vm.provider :libvirt do |libvirt|
     config.vm.box_url = "https://download.fedoraproject.org/pub/fedora/linux/releases/22/Cloud/x86_64/Images/Fedora-Cloud-Base-Vagrant-22-20150521.x86_64.vagrant-libvirt.box"
-  end
+  end if Vagrant.has_plugin?('vagrant-libvirt')
 
   config.vm.network "forwarded_port", guest: 4000, host: 4000
 
