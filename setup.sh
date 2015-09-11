@@ -4,7 +4,7 @@
 sudo dnf group install "C Development Tools and Libraries" -y || :
 sudo dnf install ruby-devel zlib-devel libxml2-devel libxslt-devel nodejs -y || :
 # ActionView is used for adjusting RSS feed
-sudo dnf install rubygem-actionview || :
+sudo dnf install rubygem-actionview -y || :
 gem install jekyll --pre || :
 gem install nokogiri -- --use-system-libraries || :
 gem install jekyll-lunr-js-search || :
