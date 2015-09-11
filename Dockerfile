@@ -1,11 +1,11 @@
 FROM fedora:22
 MAINTAINER Vaclav Pavlin <vpavlin@redhat.com>
 
-# Gems rewuire ruby-devel and group C Development Tools and Libreries
+# Gems require ruby-devel and group C Development Tools and Libraries
 # We need git to get a website and a content of Developer Portal
-# Nodejs is needed by jekyll and iproute provides ip command which let's us to set host for jekyll properly
+# Nodejs is needed by Jekyll and iproute provides ip command which let's us to set host for Jekyll properly
 RUN dnf -y update && \
-    dnf -y install ruby-devel git nodejs iproute zlib-devel libxml2-devel libxslt-devel rubygem-nokogiri && \
+    dnf -y install ruby-devel git nodejs iproute zlib-devel libxml2-devel libxslt-devel rubygem-nokogiri rubygem-actionview && \
     dnf -y group install "C Development Tools and Libraries" && \
     dnf -y clean all
 
@@ -19,7 +19,7 @@ RUN chown -R dp:dp /opt/developerportal
 
 USER dp
 
-RUN gem install jekyll
+RUN gem install jekyll --pre
 RUN gem install nokogiri -- --use-system-libraries
 RUN gem install jekyll-lunr-js-search jekyll-sitemap
 
