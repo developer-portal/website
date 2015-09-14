@@ -102,7 +102,7 @@ TEMPLATE
 blog_posts = Liquid::Template.parse(template).render 'articles' => @articles
 
 INDEX_FILE = File.expand_path('_site/index.html', '.')
-contents = File.open(INDEX_FILE).read
+contents = File.open(INDEX_FILE).read.force_encoding("UTF-8")
 contents.gsub!(/<!-- BLOG_HEADLINES_START -->.*<!-- BLOG_HEADLINES_END -->/im, "\\1#{blog_posts}\\3")
 
 File.open(INDEX_FILE, 'w') { |file|
