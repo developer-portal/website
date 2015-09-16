@@ -8,7 +8,7 @@ require 'capybara/session'
 require 'capybara/rspec'
 require_relative './shared_contexts.rb'
 
-class HyperlinksSetup
+class JekyllSite
   attr_reader :root, :file_server, :res_server
 
   def initialize(root)
@@ -47,7 +47,7 @@ end
 Capybara.app = Rack::Builder.new do
   map '/' do
     use Rack::Lint
-    run HyperlinksSetup.new(File.join(File.dirname(__FILE__), '..', '_site'))
+    run JekyllSite.new(File.join(File.dirname(__FILE__), '..', '_site'))
   end
 end.to_app
 
