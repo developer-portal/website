@@ -28,10 +28,12 @@
   background-image: url('/static/img/titles/title_front.png') !important;
   background-size: cover !important;
 
-  h1 {
+  /* this is esentially h2 for the tile page, h1 otherwise */
+  h1, h2 {
     font-family: "Open Sans Semibold";
     text-shadow: 0px 3px 1px rgba(37, 58, 102, 1);
     color: white;
+    font-size: 30px;
   }
 
   p {
