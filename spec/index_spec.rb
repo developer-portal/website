@@ -8,6 +8,10 @@ describe "Tile page" do
   end
 
   it "has a correct title" do
+    expect(page).to have_title("Fedora Developer Portal")
+  end
+
+  it "has a correct headline" do
     expect(page).to have_css("h1", text: "Fedora Developer Portal")
   end
 

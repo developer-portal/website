@@ -1,6 +1,11 @@
 # What every single page should contain
 RSpec.shared_examples_for 'Page' do
   it "has top-level menu" do
+    expect(page).to have_css("#logo-col a[href~='/']")
+    expect(page).to have_link("Start a Project", href: '/start.html')
+    expect(page).to have_link("Get Tools", href: '/tools.html')
+    expect(page).to have_link("Technology Overview", href: '/tech.html')
+    expect(page).to have_link("Deploy Your Project", href: '/deployment.html')
     expect(page).to have_css("ul.nav li", count: 4)
   end
 
@@ -12,10 +17,8 @@ RSpec.shared_examples_for 'Page' do
 
   it "has footer" do
     expect(page).to have_css(".footer")
-
     # 4 sections: About, Download, Support, Join
     expect(page).to have_css(".footer h3.widget-title", count: 4)
-
     expect(page).to have_css(".footer p.copy", text: "© 2015 Red Hat, Inc. and others.")
   end
 end
