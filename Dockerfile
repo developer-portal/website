@@ -5,7 +5,7 @@ MAINTAINER Vaclav Pavlin <vpavlin@redhat.com>
 # We need git to get a website and a content of Developer Portal
 # Nodejs is needed by Jekyll and iproute provides ip command which let's us to set host for Jekyll properly
 RUN dnf -y update && \
-    dnf -y install ruby-devel git nodejs iproute zlib-devel libxml2-devel libxslt-devel rubygem-nokogiri rubygem-actionview && \
+    dnf -y install ruby-devel git nodejs iproute zlib-devel libxml2-devel libxslt-devel rubygem-nokogiri rubygem-actionview rubygem-rack rubygem-capybara rubygem-rspec && \
     dnf -y group install "C Development Tools and Libraries" && \
     dnf -y clean all
 
