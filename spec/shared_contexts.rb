@@ -9,12 +9,6 @@ RSpec.shared_examples_for 'Page' do
     expect(page).to have_css("ul.nav li", count: 4)
   end
 
-  it "has a search box" do
-    expect(page).to have_css("form#search")
-    expect(page).to have_css("form#search input")
-    expect(page).to have_css("form#search button")
-  end
-
   it "has footer" do
     expect(page).to have_css(".footer")
 
@@ -47,5 +41,14 @@ RSpec.shared_examples_for 'Page' do
     expect(page).to have_css(".footer a", count: 26)
 
     expect(page).to have_css(".footer p.copy", text: "© 2015 Red Hat, Inc. and others.")
+  end
+end
+
+# search page does not contain form#search
+RSpec.shared_examples_for 'Page with search box' do
+  it "has a search box next to the top-level navigation" do
+    expect(page).to have_css("form#search")
+    expect(page).to have_css("form#search input")
+    expect(page).to have_css("form#search button")
   end
 end
