@@ -8,6 +8,15 @@
   margin-bottom: 15px;
 }
 
+#logo-col h1 {
+  padding: 0;
+  margin: 0;
+}
+
+#logo-col a span {
+  display: none;
+}
+
 /* Splash gradient background */
 #splash, .title {
   background: rgb(60, 109, 179) !important;
