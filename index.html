@@ -4,6 +4,62 @@ highlight_section: home
 ---
 
 <div class="row text-center">
+<div class="row text-center">
+ <div id="myFedoraPortal" class="carousel slide" data-ride="carousel" >
+ <ol class="carousel-indicators">
+ <li data-target="/tools/docker/about.html" data-slide-to="0" class="active"></li>
+ <li data-target="#myFedoraPortal" data-slide-to="1"></li>
+ <li data-target="#myFedoraPortal" data-slide-to="2"></li>
+ </ol>
+ <!-- Wrapper for slides -->
+ <div class="carousel-inner" role="listbox">
+  <div class="item active">
+    <a href="/tools/docker/about.html">
+       <img src="/static/logo/docker.png" alt="Docker">
+       <div class="container">
+       <div class="carusel-caption">
+          <h1>Docker</h1>
+          <p>Docker description</p>
+       </div>
+      </div>
+    </a>
+  </div>
+  <div class="item">
+    <a href="/tools/vagrant/about.html">
+      <img src="/static/logo/vagrant.png" alt="Vagrant">
+       <div class="container">
+      <div class="carusel-caption">
+          <h1>Vagrant</h1>
+          <p>Vagrant description</p>
+      </div>
+      </div>
+    </a>
+  </div>
+  <div class="item">
+    <a class="panel-link" href="/tools/devassistant/about.html">
+      <img src="/static/logo/devassistant.png" alt="DevAssistant">
+       <div class="container">
+      <div class="carusel-caption">
+         <h1>DevAssistant</h1>
+         <p>DevAssistant description</p>
+      </div>
+      </div>
+    </a>
+  </div>
+  </div>
+  
+  <!-- Left and right controls -->
+  <a class="left carousel-control" href="#myFedoraPortal" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#myFedoraPortal" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+    <span class="sr-only">Next</span>
+  </a>
+ </div>
+</div>
+
 <div class="row text-center" id="front-nav">
   <div class="col-sm-3">
 	<a href="/start.html"><img src="/static/img/nav-start.png"></a>
