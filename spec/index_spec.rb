@@ -1,9 +1,6 @@
 require 'spec_helper'
 
 describe "Title page" do
-  it_behaves_like 'Page'
-  it_behaves_like 'Page with search box'
-
   before :each do
     visit "/index.html"
   end

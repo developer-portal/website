@@ -44,7 +44,7 @@ RSpec.shared_examples_for 'Page' do
   end
 end
 
-# search page does not contain form#search
+# Search page does not contain form#search
 RSpec.shared_examples_for 'Page with search box' do
   it "has a search box next to the top-level navigation" do
     expect(page).to have_css("form#search")
