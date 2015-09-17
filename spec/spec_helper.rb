@@ -9,14 +9,11 @@ require 'capybara/rspec'
 require_relative './shared_contexts.rb'
 
 class JekyllSite
-  attr_reader :root, :file_server, :res_server
+  attr_reader :root, :server
 
   def initialize(root)
     @root = root
-    @file_server = Rack::File.new(root)
-
-    site_path = File.join(File.dirname(__FILE__), '..', '_site')
-    @res_server = Rack::File.new(File.expand_path(site_path))
+    @server = Rack::File.new(root)
   end
 
   def call(env)
@@ -27,19 +24,13 @@ class JekyllSite
       env['PATH_INFO'] = '/index.html'
     elsif !exists?(path) && exists?(path + '.html')
       env['PATH_INFO'] += '.html'
-    elsif exists?(path) && directory?(path) && exists?(File.join(path, 'index.html'))
-      env['PATH_INFO'] += '/index.html'
     end
 
-    file_server.call(env)
+    server.call(env)
   end
 
   def exists?(path)
     File.exist?(File.join(root, path))
-  end
-
-  def directory?(path)
-    File.directory?(File.join(root, path))
   end
 end
 
