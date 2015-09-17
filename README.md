@@ -9,6 +9,14 @@ https://github.com/developer-portal/content.
 
 There is an `rss.rb` script that replaces the blog posts section on the index page in generated `_site/` from the Fedora Planet.
 
+## Tests
+
+We have some basic Capybara/Webkit test specifications that can help you to notice if something broke. It will also check all internal links between pages that they actually work. To execute them, run:
+
+```
+$ rspec spec
+```
+
 ## Local development instance
 
 - [Using Vagrant](https://github.com/developer-portal/website#using-vagrant)
