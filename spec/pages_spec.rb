@@ -17,7 +17,7 @@ PAGES.each do |p|
       page.all(:css, 'a').each do |link|
         next if link.text == '' || link[:href].match(/(http|\/\/).*/)
         page.find(:xpath, link.path).click
-        expect(page.status_code).to be(200)
+        expect(page.status_code).to be(200), "expected link '#{link.text}' to work"
         visit p
       end
     end
