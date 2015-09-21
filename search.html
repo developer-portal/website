@@ -1,23 +1,19 @@
 ---
-layout: general
+layout: search
+title: Search Fedora Developer Portal
+description: Search Fedora Developer Portal
 ---
-
-<div id="search">
-  <form action="/search.html" method="get">
-    <input type="text" id="search-query" class="form-control" name="q" placeholder="Search" autocomplete="off">
-  </form>
-</div>
 
 <section id="search-results">
   <h2>Search results</h2>
-  <div class="entries" style="display: block; position: static;">
+  <div class="entries" style="font-size: 15px; display: block; position: static; padding: 0; margin: 0; border: 0;">
   </div>
 </section>
 
 {% raw %}
 <script id="search-results-template" type="text/mustache">
   {{#entries}}
-    <article>
+    <article style="padding: 0; margin: 0;">
       <h3>
         <a href="{{url}}">{{title}}</a>
       </h3>
