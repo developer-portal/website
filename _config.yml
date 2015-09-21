@@ -19,6 +19,11 @@ gems:
   - jekyll-lunr-js-search
   - jekyll-sitemap
 
+# Configure search
+lunr_search:
+  stopwords: "stopwords.txt"
+  min_length: 1
+
 # Special kramdown settings
 kramdown:
   input: GFM
