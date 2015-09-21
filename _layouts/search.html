@@ -6,7 +6,7 @@
     <div class="title container" id="{{ page.section }}">
       <div class="container">
         <div class="row">
-          <div style="width: 500px; margin-left: auto; margin-right: auto; margin-top: 60px;">
+          <div style="width: 500px; margin-left: auto; margin-right: auto; margin-top: 60px; margin-bottom: 22px;">
             <div id="search">
               <form class="input-group" id="search" action="/search.html" method="get">
                 <input type="text" id="search-query" class="form-control" name="q" placeholder="Search" autocomplete="off">
@@ -15,6 +15,11 @@
                 </span>
               </form>
             </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12">
+            <p id="attribution"><a href="{{ page.photo-link }}">{{ page.attribution }}</a></p>
           </div>
         </div>
       </div>
