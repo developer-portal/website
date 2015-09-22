@@ -132,12 +132,12 @@
   margin-top: 10px !important;
 }
 
-#banner > div {
+#headlines > div {
   margin-left: auto;
   margin-right: auto;
 }
 
-#banner {
+#headlines {
   font-size: 1.5em;
   text-align: center;
   padding: 50px 100px;
@@ -440,13 +440,13 @@ h3 a, h3 a:visited {
   margin-top: 4em;
 }
 
-.banner {
+.headlines {
   width: 100% !important;
   margin-left: 0;
   margin-right: 0;
   height: 240px;
 
-  .banner-body {
+  .headlines-body {
     padding: 32px 5px 24px 5px;
   }
 
@@ -455,7 +455,7 @@ h3 a, h3 a:visited {
   }
 }
 
-.banner#devassistant {
+.headlines#devassistant {
   background-image: url('/static/img/noisy_grid.png') !important;
   background-repeat: repeat;
 
