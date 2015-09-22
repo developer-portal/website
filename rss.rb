@@ -69,13 +69,13 @@ template = <<TEMPLATE
   <article>
   <h3><a href="{{ articles[0].url }}">{{ articles[0].title }}</a></h3>
   <p>{{ articles[0].description }}</p>
-  <p><a href="{{ articles[0].url }}">Read more&hellip;</a></p>
+  <p><a href="{{ articles[0].url }}">Read more</a></p>
   <p class="byline">by <span class="author">{{ articles[0].author }}</span> <span class="date">{{ articles[0].date }}</span></p>
   </article>
   <article>
   <h3><a href="{{ articles[1].url }}">{{ articles[1].title }}</a></h3>
   <p>{{ articles[1].description }}</p>
-  <p><a href="{{ articles[1].url }}">Read more&hellip;</a></p>
+  <p><a href="{{ articles[1].url }}">Read more</a></p>
   <p class="byline">by <span class="author">{{ articles[1].author }}</span> <span class="date">{{ articles[1].date }}</span></p>
   </article>
   </div>
@@ -83,13 +83,13 @@ template = <<TEMPLATE
     <article>
   <h3><a href="{{ articles[1].url }}">{{ articles[2].title }}</a></h3>
   <p>{{ articles[2].description }}</p>
-  <p><a href="{{ articles[2].url }}">Read more&hellip;</a></p>
+  <p><a href="{{ articles[2].url }}">Read more</a></p>
   <p class="byline">by <span class="author">{{ articles[2].author }}</span> <span class="date">{{ articles[2].date }}</span></p>
   </article>
   <article>
   <h3><a href="{{ articles[3].url }}">{{ articles[3].title }}</a></h3>
   <p>{{ articles[3].description }}</p>
-  <p><a href="{{ articles[3].url }}">Read more&hellip;</a></p>
+  <p><a href="{{ articles[3].url }}">Read more</a></p>
   <p class="byline">by <span class="author">{{ articles[3].author }}</span> <span class="date">{{ articles[3].date }}</span></p>
   </article>
   </div>
