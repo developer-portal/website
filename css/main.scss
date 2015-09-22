@@ -42,11 +42,39 @@ $fedora-blue:      #3c6eb4;
     }
 }
 
-
-
 // Import partials from `sass_dir` (defaults to `_sass`)
 @import
         "base",
         "layout",
         "syntax-highlighting"
 ;
+
+// Responsive styles fixes
+@media all and (max-width: 1100px) {
+  nav .nav {
+    // Avoid collision with the logo
+    clear: both;
+    padding-left: 10px;
+    // Keep the navigation items in one line
+    li { float: left; }
+  }
+  .entries {
+    width: calc(100% - 30px);
+    right: none;
+    left: 15px;
+  }
+}
+@media all and (max-width: 768px) {
+  .entries {
+    top: 34px;
+  }
+}
+@media all and (min-width: 1100px) {
+  #search {
+    position: absolute;
+    top: 0px;
+    right: 15px;
+    z-index: 10;
+    width: 288px;
+  }
+}

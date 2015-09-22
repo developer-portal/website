@@ -82,6 +82,8 @@
  */
 .entries {
   position: absolute;
+  top: 44px;
+  right: 15px;
   background: white;
   color: black;
   border: 1px solid $grey-color-light;
@@ -89,8 +91,6 @@
   border-bottom-left-radius: 5px;
   border-top: 0;
   padding: 5px;
-  top: 44px;
-  left: 15px;
   z-index: 10;
   width: 288px;
 }
