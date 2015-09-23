@@ -78,3 +78,10 @@ $fedora-blue:      #3c6eb4;
     width: 288px;
   }
 }
+@media all and (max-width: 780px) {
+  // Reset margin so we don't get horizontal scrollbar
+  body .row {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
