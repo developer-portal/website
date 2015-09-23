@@ -129,6 +129,12 @@
   background-color: transparent !important;
 }
 
+body .nav li.active a,
+body .nav li a:hover {
+  background: none;
+  text-decoration: underline;
+}
+
 .btn.glyphicon {
   margin-top: -2px !important;
 }
