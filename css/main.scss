@@ -58,6 +58,10 @@ $fedora-blue:      #3c6eb4;
     // Keep the navigation items in one line
     li { float: left; }
   }
+  #search {
+    // Leave some space between the input and headlines
+    margin-bottom: 20px;
+  }
   .entries {
     width: calc(100% - 30px);
     right: none;
