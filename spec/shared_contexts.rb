@@ -2,10 +2,10 @@
 RSpec.shared_examples_for 'Page' do
   it "has top-level menu" do
     expect(page).to have_css("#logo-col a[href~='/']")
-    expect(page).to have_link("Start a Project", href: '/start.html')
-    expect(page).to have_link("Get Tools", href: '/tools.html')
-    expect(page).to have_link("Technology Overview", href: '/tech.html')
-    expect(page).to have_link("Deploy Your Project", href: '/deployment.html')
+    expect(page).to have_link("Start a project", href: '/start.html')
+    expect(page).to have_link("Get tools", href: '/tools.html')
+    expect(page).to have_link("Technology overview", href: '/tech.html')
+    expect(page).to have_link("Deploy and distribute", href: '/deployment.html')
     expect(page).to have_css("ul.nav li", count: 4)
   end
 
