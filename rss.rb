@@ -1,8 +1,19 @@
 #!/usr/bin/ruby
-# This script can update the title page from any RSS feed.
+# This script can update the title page from any RSS feed, but concrete
+# adjustments are done specifically to Fedora Planet.
 #
 # It replaces the content between <!-- BLOG_HEADLINES_START -->
-# and <!-- BLOG_HEADLINES_END --> in _site/index.html
+# and <!-- BLOG_HEADLINES_END --> in _site/index.html. The file
+# path of index.html can be passed as an argument.
+#
+# Usage:
+#
+#   ./rss.rb _site/index.html
+
+if ARGV[0]
+  puts "Setting the index file to: #{ARGV[0]}"
+  index_file = ARGV[0]
+end
 
 require 'rss'
 
@@ -107,11 +118,11 @@ TEMPLATE
 
 blog_posts = Liquid::Template.parse(template).render 'articles' => @articles
 
-INDEX_FILE ||= File.expand_path('_site/index.html', '.')
-contents = File.open(INDEX_FILE).read.force_encoding('UTF-8')
+index_file ||= File.expand_path('_site/index.html', '.')
+contents = File.open(index_file).read.force_encoding('UTF-8')
 contents.gsub!(/<!-- BLOG_HEADLINES_START -->.*<!-- BLOG_HEADLINES_END -->/im,
                "\\1#{blog_posts}\\3")
 
-File.open(INDEX_FILE, 'w') do |file|
+File.open(index_file, 'w') do |file|
   file.write(contents)
 end
