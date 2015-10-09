@@ -18,10 +18,16 @@ FEED_URL = 'http://fedoraplanet.org/rss20.xml'.freeze
 
 class Article
   attr_accessor :author, :title, :description, :date, :url
+
+  # This is needed because we use liquid templates
   liquid_methods :author, :title, :description, :date, :url
 
   def initialize(author, title, description, date, url)
-    @author, @title, @description, @date, @url = author, title, description, date, url
+    @author = author
+    @title = title
+    @description = description
+    @date = date
+    @url = url
   end
 end
 @articles = []
@@ -101,10 +107,11 @@ TEMPLATE
 
 blog_posts = Liquid::Template.parse(template).render 'articles' => @articles
 
-INDEX_FILE = File.expand_path('_site/index.html', '.')
-contents = File.open(INDEX_FILE).read.force_encoding("UTF-8")
-contents.gsub!(/<!-- BLOG_HEADLINES_START -->.*<!-- BLOG_HEADLINES_END -->/im, "\\1#{blog_posts}\\3")
+INDEX_FILE ||= File.expand_path('_site/index.html', '.')
+contents = File.open(INDEX_FILE).read.force_encoding('UTF-8')
+contents.gsub!(/<!-- BLOG_HEADLINES_START -->.*<!-- BLOG_HEADLINES_END -->/im,
+               "\\1#{blog_posts}\\3")
 
-File.open(INDEX_FILE, 'w') { |file|
+File.open(INDEX_FILE, 'w') do |file|
   file.write(contents)
-}
+end
