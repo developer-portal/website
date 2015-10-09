@@ -9,6 +9,13 @@ if [ ! -d "./_site" ]; then
   echo "_site/ is missing. Run `jekyll build`"
 fi
 
+echo "Running specs..."
+rspec spec
+if [ "$?" != 0 ]; then
+  echo "Specs failed, aborting deploy."
+  exit 1
+fi
+
 # Install dependencies if missing
 echo "Checking dependencies..."
 ssh $SITE "rpm -q ruby && rpm -q rubygem-liquid && rpm -q rubygem-actionview"
