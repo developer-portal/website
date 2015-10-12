@@ -13,6 +13,11 @@
   margin: 0;
 }
 
+#logo-col a {
+  display: block;
+  height: 46px;
+}
+
 #logo-col a span {
   display: none;
 }
@@ -82,11 +87,21 @@
  */
 .entries {
   position: absolute;
+  top: 44px;
+  right: 15px;
   background: white;
-  top: 55px;
-  left: 0px;
-  right: 0px;
+  color: black;
+  border: 1px solid $grey-color-light;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-top: 0;
+  padding: 5px;
   z-index: 10;
+  width: 288px;
+}
+.entries p {
+  padding: 0;
+  margin: 0;
 }
 
 /***
@@ -114,6 +129,12 @@
   background-color: transparent !important;
 }
 
+body .nav li.active a,
+body .nav li a:hover {
+  background: none;
+  text-decoration: underline;
+}
+
 .btn.glyphicon {
   margin-top: -2px !important;
 }
@@ -122,12 +143,17 @@
   margin-top: 10px !important;
 }
 
-#banner > div {
+// Search box on the search page
+#headline-search {
+  width: 500px; margin-left: auto; margin-right: auto; margin-top: 60px; margin-bottom: 22px;
+}
+
+#headlines > div {
   margin-left: auto;
   margin-right: auto;
 }
 
-#banner {
+#headlines {
   font-size: 1.5em;
   text-align: center;
   padding: 50px 100px;
@@ -430,13 +456,13 @@ h3 a, h3 a:visited {
   margin-top: 4em;
 }
 
-.banner {
+.headlines {
   width: 100% !important;
   margin-left: 0;
   margin-right: 0;
   height: 240px;
 
-  .banner-body {
+  .headlines-body {
     padding: 32px 5px 24px 5px;
   }
 
@@ -445,7 +471,7 @@ h3 a, h3 a:visited {
   }
 }
 
-.banner#devassistant {
+.headlines#devassistant {
   background-image: url('/static/img/noisy_grid.png') !important;
   background-repeat: repeat;
 
@@ -463,7 +489,7 @@ h3 a, h3 a:visited {
   background-repeat: repeat;
   color: white;
   width: 100% !important;
-  padding: 22px 65px;
+  padding: 22px 0;
   padding-bottom: 80px !important;
   margin-bottom: -80px;
 }

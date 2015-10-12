@@ -2,10 +2,10 @@
 RSpec.shared_examples_for 'Page' do
   it "has top-level menu" do
     expect(page).to have_css("#logo-col a[href~='/']")
-    expect(page).to have_link("Start a Project", href: '/start.html')
-    expect(page).to have_link("Get Tools", href: '/tools.html')
-    expect(page).to have_link("Technology Overview", href: '/tech.html')
-    expect(page).to have_link("Deploy Your Project", href: '/deployment.html')
+    expect(page).to have_link("Start a project", href: '/start.html')
+    expect(page).to have_link("Get tools", href: '/tools.html')
+    expect(page).to have_link("Technology overview", href: '/tech.html')
+    expect(page).to have_link("Deploy and distribute", href: '/deployment.html')
     expect(page).to have_css("ul.nav li", count: 4)
   end
 
@@ -16,6 +16,7 @@ RSpec.shared_examples_for 'Page' do
     expect(page).to have_css(".footer h3.widget-title", count: 4)
 
     # Footer links
+    expect(page).to have_link("About Developer Portal", href: '/about.html')
     expect(page).to have_link("About Fedora", href: '//getfedora.org/en/sponsors')
     expect(page).to have_link("Sponsors", href: '//getfedora.org/en/sponsors')
     expect(page).to have_link("Fedora Magazine", href: 'http://fedoramagazine.org')
@@ -38,7 +39,7 @@ RSpec.shared_examples_for 'Page' do
     expect(page).to have_link("Fedora Account System", href: '//admin.fedoraproject.org/accounts/')
     expect(page).to have_link("Fedora Community", href: 'http://fedoracommunity.org/')
     expect(page).to have_link("Learn more about the relationship between Red Hat and Fedora »", href: '//www.redhat.com/en/technologies/linux-platforms/articles/relationship-between-fedora-and-rhel')
-    expect(page).to have_css(".footer a", count: 26)
+    expect(page).to have_css(".footer a", count: 27)
 
     expect(page).to have_css(".footer p.copy", text: "© 2015 Red Hat, Inc. and others.")
   end

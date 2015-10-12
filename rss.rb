@@ -1,8 +1,19 @@
 #!/usr/bin/ruby
-# This script can update the title page from any RSS feed.
+# This script can update the title page from any RSS feed, but concrete
+# adjustments are done specifically to Fedora Planet.
 #
 # It replaces the content between <!-- BLOG_HEADLINES_START -->
-# and <!-- BLOG_HEADLINES_END --> in _site/index.html
+# and <!-- BLOG_HEADLINES_END --> in _site/index.html. The file
+# path of index.html can be passed as an argument.
+#
+# Usage:
+#
+#   ./rss.rb _site/index.html
+
+if ARGV[0]
+  puts "Setting the index file to: #{ARGV[0]}"
+  index_file = ARGV[0]
+end
 
 require 'rss'
 
@@ -18,10 +29,16 @@ FEED_URL = 'http://fedoraplanet.org/rss20.xml'.freeze
 
 class Article
   attr_accessor :author, :title, :description, :date, :url
+
+  # This is needed because we use liquid templates
   liquid_methods :author, :title, :description, :date, :url
 
   def initialize(author, title, description, date, url)
-    @author, @title, @description, @date, @url = author, title, description, date, url
+    @author = author
+    @title = title
+    @description = description
+    @date = date
+    @url = url
   end
 end
 @articles = []
@@ -69,13 +86,13 @@ template = <<TEMPLATE
   <article>
   <h3><a href="{{ articles[0].url }}">{{ articles[0].title }}</a></h3>
   <p>{{ articles[0].description }}</p>
-  <p><a href="{{ articles[0].url }}">Read more&hellip;</a></p>
+  <p><a href="{{ articles[0].url }}">Read more</a></p>
   <p class="byline">by <span class="author">{{ articles[0].author }}</span> <span class="date">{{ articles[0].date }}</span></p>
   </article>
   <article>
   <h3><a href="{{ articles[1].url }}">{{ articles[1].title }}</a></h3>
   <p>{{ articles[1].description }}</p>
-  <p><a href="{{ articles[1].url }}">Read more&hellip;</a></p>
+  <p><a href="{{ articles[1].url }}">Read more</a></p>
   <p class="byline">by <span class="author">{{ articles[1].author }}</span> <span class="date">{{ articles[1].date }}</span></p>
   </article>
   </div>
@@ -83,13 +100,13 @@ template = <<TEMPLATE
     <article>
   <h3><a href="{{ articles[1].url }}">{{ articles[2].title }}</a></h3>
   <p>{{ articles[2].description }}</p>
-  <p><a href="{{ articles[2].url }}">Read more&hellip;</a></p>
+  <p><a href="{{ articles[2].url }}">Read more</a></p>
   <p class="byline">by <span class="author">{{ articles[2].author }}</span> <span class="date">{{ articles[2].date }}</span></p>
   </article>
   <article>
   <h3><a href="{{ articles[3].url }}">{{ articles[3].title }}</a></h3>
   <p>{{ articles[3].description }}</p>
-  <p><a href="{{ articles[3].url }}">Read more&hellip;</a></p>
+  <p><a href="{{ articles[3].url }}">Read more</a></p>
   <p class="byline">by <span class="author">{{ articles[3].author }}</span> <span class="date">{{ articles[3].date }}</span></p>
   </article>
   </div>
@@ -101,10 +118,11 @@ TEMPLATE
 
 blog_posts = Liquid::Template.parse(template).render 'articles' => @articles
 
-INDEX_FILE = File.expand_path('_site/index.html', '.')
-contents = File.open(INDEX_FILE).read.force_encoding("UTF-8")
-contents.gsub!(/<!-- BLOG_HEADLINES_START -->.*<!-- BLOG_HEADLINES_END -->/im, "\\1#{blog_posts}\\3")
+index_file ||= File.expand_path('_site/index.html', '.')
+contents = File.open(index_file).read.force_encoding('UTF-8')
+contents.gsub!(/<!-- BLOG_HEADLINES_START -->.*<!-- BLOG_HEADLINES_END -->/im,
+               "\\1#{blog_posts}\\3")
 
-File.open(INDEX_FILE, 'w') { |file|
+File.open(index_file, 'w') do |file|
   file.write(contents)
-}
+end

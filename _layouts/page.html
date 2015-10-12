@@ -1,42 +1,39 @@
 <!DOCTYPE html>
 <html>
-
   {% include head.html %}
-
   <body>
     {% include header.html %}
     <div class="title container" id="{{ page.section }}">
       <div class="container">
-	    <div class="row">
-		  <div class="col-sm-2" id="page-logo">
-                      {% for p in site.pages %}
-                      {% if p.page == page.page %}
-                        {% if p.section %}
-                      
-                          <img class="img-circle" style="background-color: white; padding: 6px; width:100px; margin-top: 30px; margin-right: 20px;" src="{{ p.page | page_logo }}">
-                        {% endif %}
-                      {% endif %}
-                      {% endfor %}
-		  </div>	
-		  <div class="col-sm-4" id="page-title">
-                      {% for p in site.pages %}
-                      {% if p.page == page.page %}
-                        {% if p.section %}
-                          <h1 style="margin-top:30px">{{ p.title }}</h1>
-                        {% endif %}
-                      {% endif %}
-                      {% endfor %}
-		  </div>
-		  <div class="col-sm-6" id="page-description">
-                      {% for p in site.pages %}
-                      {% if p.page == page.page %}
-                        {% if p.section %}
-                          <p>{{ p.description }}</p>
-                        {% endif %}
-                      {% endif %}
-                      {% endfor %}
-	      </div>
-	    </div>
+        <div class="row">
+          <div class="col-sm-2" id="page-logo">
+            {% for p in site.pages %}
+              {% if p.page == page.page %}
+                {% if p.section %}
+                  <img class="img-circle" style="background-color: white; padding: 6px; width:100px; margin-top: 30px; margin-right: 20px;" src="{{ p.page | page_logo }}">
+                {% endif %}
+              {% endif %}
+            {% endfor %}
+          </div>
+          <div class="col-sm-4" id="page-title">
+            {% for p in site.pages %}
+              {% if p.page == page.page %}
+                {% if p.section %}
+                  <h1 style="margin-top:30px">{{ p.title }}</h1>
+                {% endif %}
+              {% endif %}
+            {% endfor %}
+          </div>
+          <div class="col-sm-6" id="page-description">
+            {% for p in site.pages %}
+              {% if p.page == page.page %}
+                {% if p.section %}
+                  <p>{{ p.description }}</p>
+                {% endif %}
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
       </div>
     </div>
     <div class="container">
@@ -47,21 +44,54 @@
         {% assign sorted_pages = site.pages | sort: "order" %}
         <div class="col-sm-3">
           <div class="list-group">
-          {% for p in sorted_pages %}
-          {% if p.page == page.page %}
-            {% if p.section %}
-            <a href="{{p.url}}" class="list-group-item {% if p.url == page.url %} active {% endif %}">{{ p.title }}</a>
+            {% for p in sorted_pages %}
+              {% if p.page == page.page %}
+                {% if p.section %}
+                <a href="{{p.url}}" class="list-group-item {% if p.url == page.url %} active {% endif %}">{{ p.title }}</a>
+                {% endif %}
+              {% endif %}
+            {% endfor %}
+            {% for p in sorted_pages %}
+              {% if p.page == page.page %}
+                {% if p.section %}{% else %}
+                <a href="{{p.url}}" class="list-group-item {% if p.url == page.url %} active {% endif %}">{{ p.title }}</a>
+                {% endif %}
+              {% endif %}
+            {% endfor %}
+          </div>
+          <div id="ask-fedora">
+            Have a question?
+            {% if page.page == 'go' %}
+              <a href="//ask.fedoraproject.org/en/questions/scope:all/sort:age-desc/tags:go,golang/page:1/">Ask Fedora.</a>
+            {% elsif page.page == 'python' %}
+              <a href="//ask.fedoraproject.org/en/questions/scope:all/sort:age-desc/tags:python,python3,flask,django/page:1/">Ask Fedora.</a>
+            {% elsif page.page == 'ruby' %}
+              <a href="//ask.fedoraproject.org/en/questions/scope:all/sort:age-desc/tags:ruby,rails,sinatra/page:1/">Ask Fedora.</a>
+            {% elsif page.page == 'perl' %}
+              <a href="//ask.fedoraproject.org/en/questions/scope:all/sort:age-desc/tags:perl/page:1/">Ask Fedora.</a>
+            {% elsif page.page == 'java' %}
+              <a href="//ask.fedoraproject.org/en/questions/scope:all/sort:age-desc/tags:java,jvm,jar/page:1/">Ask Fedora.</a>
+            {% elsif page.page == 'c' %}
+              <a href="//ask.fedoraproject.org/en/questions/scope:all/sort:age-desc/tags:c,c++,clang,gcc,automake,autoconf/page:1/">Ask Fedora.</a>
+            {% elsif page.page == 'node' %}
+              <a href="//ask.fedoraproject.org/en/questions/scope:all/sort:age-desc/tags:node.js/page:1/">Ask Fedora.</a>
+            {% elsif page.page == 'php' %}
+              <a href="//ask.fedoraproject.org/en/questions/scope:all/sort:age-desc/tags:php,lamp/page:1/">Ask Fedora.</a>
+            {% elsif page.page == 'postgresql' %}
+              <a href="//ask.fedoraproject.org/en/questions/scope:all/sort:age-desc/tags:postgresql/page:1/">Ask Fedora.</a>
+            {% elsif page.page == 'sqlite' %}
+              <a href="//ask.fedoraproject.org/en/questions/scope:all/sort:age-desc/tags:sqlite/page:1/">Ask Fedora.</a>
+            {% elsif page.page == 'mariadb' %}
+              <a href="//ask.fedoraproject.org/en/questions/scope:all/sort:age-desc/tags:mariadb,mysql/page:1/">Ask Fedora.</a>
+            {% elsif page.page == 'vagrant' %}
+              <a href="//ask.fedoraproject.org/en/questions/scope:all/sort:age-desc/tags:vagrant/page:1/">Ask Fedora.</a>
+            {% elsif page.page == 'docker' %}
+              <a href="//ask.fedoraproject.org/en/questions/scope:all/sort:age-desc/tags:docker/page:1/">Ask Fedora.</a>
+            {% elsif page.page == 'devassistant' %}
+              <a href="//ask.fedoraproject.org/en/questions/scope:all/sort:age-desc/tags:devassistant/page:1/">Ask Fedora.</a>
+            {% else %}
+              <a href="//ask.fedoraproject.org/">Ask Fedora.</a>
             {% endif %}
-          {% endif %}
-          {% endfor %}
-
-          {% for p in sorted_pages %}
-          {% if p.page == page.page %}
-            {% if p.section %}{% else %}
-            <a href="{{p.url}}" class="list-group-item {% if p.url == page.url %} active {% endif %}">{{ p.title }}</a>
-            {% endif %}
-          {% endif %}
-          {% endfor %}
           </div>
         </div>
       </div>

@@ -18,33 +18,10 @@
         </a>
       </div>
     </div>
-    <div class="col-sm-8">
-      <nav>
-        <ul class="nav navbar-nav">
-          <li class="{% if page.highlight_section == "start" %} active {%endif%}">
-            <a href="/start.html">Start a Project</a>
-          </li>
-          <li class="{% if page.highlight_section == "tools" %} active {%endif%}">
-            <a href="/tools.html">Get Tools</a>
-          </li>
-          <li class="{% if page.highlight_section == "tech" %} active {%endif%}">
-            <a href="/tech.html">Technology Overview</a>
-          </li>
-          <li class="{% if page.highlight_section == "deployment" %} active {%endif%}">
-            <a href="/deployment.html">Deploy Your Project</a>
-          </li>
-          <!--
-          <li class="{% if page.highlight_section == "resources" %} active {%endif%}">
-            <a href="/">Resources</a>
-          </li>
-          <li class="{% if page.highlight_section == "blogs" %} active {%endif%}">
-            <a href="/">Blogs</a>
-          </li>
-          -->
-        </ul>
-      </nav>
+    <div class="col-sm-7">
+      {% include nav.html %}
     </div>
-    <div class="col-sm-2">
+    <div class="col-sm-3">
       {% include search.html %}
     </div>
   </div>

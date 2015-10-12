@@ -7,6 +7,7 @@
 </div>
 </div>
 </div>
+
 <div class="container" id="splash">
   <div class="row" id="top">
     <div class="col-sm-2" id="logo-col">
@@ -19,36 +20,13 @@
         </h1>
       </div>
     </div>
-    <div class="col-sm-8">
-	  <nav>
-        <ul class="nav navbar-nav">
-          <li class="{% if page.highlight_section == "start" %} active {%endif%}">
-            <a href="/start.html">Start A Project</a>
-          </li>
-          <li class="{% if page.highlight_section == "tools" %} active {%endif%}">
-            <a href="/tools.html">Get Tools</a>
-          </li>
-          <li class="{% if page.highlight_section == "tech" %} active {%endif%}">
-            <a href="/tech.html">Technology Overview</a>
-          </li>
-          <li class="{% if page.highlight_section == "deployment" %} active {%endif%}">
-            <a href="/deployment.html">Deploy Your Project</a>
-          </li>
-          <!--
-          <li class="{% if page.highlight_section == "resources" %} active {%endif%}">
-            <a href="/">Resources</a>
-          </li>
-          <li class="{% if page.highlight_section == "blogs" %} active {%endif%}">
-            <a href="/">Blogs</a>
-          </li>
-          -->
-        </ul>
-      </nav>
+    <div class="col-sm-7">
+      {% include nav.html %}
     </div>
-    <div class="col-sm-2">
+    <div class="col-sm-3">
       {% include search.html %}
     </div>
-  <div class="row" id="banner">
+  <div class="row" id="headlines">
 	  <div class="col-sm-12">
 		<h2>The developer workstation you've been waiting for.</h2>
 		<p>From mobile apps to web; from desktop GUIs to CLI tools. Create it all easily with Fedora.</p>
@@ -57,7 +35,7 @@
   <div class="row" id="attribution">
     <div class="col-sm-12">
       <a href="https://www.flickr.com/photos/duald/7423940266/">Union Station Abstract</a> by <a href="https://www.flickr.com/photos/duald/">DualD FlipFlop</a> on Flickr, CC-BY-2.0
-</div>
+    </div>
     </div>
   </div>
 </div>

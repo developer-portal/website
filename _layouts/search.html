@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  {% include head.html %}
+  <body>
+    {% include header.html %}
+    <div class="title container" id="{{ page.section }}">
+      <div class="container">
+        <div class="row">
+          <div id="headline-search">
+            <form class="input-group" id="search" action="/search.html" method="get" style="position: relative; width: auto;">
+              <input type="text" id="search-query" class="form-control" name="q" placeholder="Search" autocomplete="off" style="position: relative;">
+              <span class="input-group-btn">
+                <button class="btn btn-default glyphicon glyphicon-search" type="submit" aria-hidden="true"></button>
+              </span>
+            </form>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12">
+            <p id="attribution"><a href="{{ page.photo-link }}">{{ page.attribution }}</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          {{ content }}
+        </div>
+      </div>
+    </div>
+    {% include footer.html %}
+  </body>
+</html>
