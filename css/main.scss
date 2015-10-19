@@ -101,4 +101,7 @@ $fedora-blue:      #3c6eb4;
   .headlines {
     min-height: 440px;
   }
+  .headlines {
+    h2, p { margin-left: 50px; }
+  }
 }
