@@ -82,6 +82,12 @@ $fedora-blue:      #3c6eb4;
     width: 288px;
   }
 }
+@media all and (min-width: 781px) {
+  // Make carrousel height the same for all items
+  .carousel .headlines {
+    min-height: 340px;
+  }
+}
 @media all and (max-width: 780px) {
   // Reset margin so we don't get horizontal scrollbar
   body .row {
@@ -90,5 +96,9 @@ $fedora-blue:      #3c6eb4;
   }
   #headline-search {
     width: 100%;
+  }
+  // Increase carrousel height
+  .headlines {
+    min-height: 440px;
   }
 }
