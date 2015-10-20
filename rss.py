@@ -7,12 +7,12 @@ import sys
 import feedparser
 import re
 
-#FedMag = ['http://fedoramagazine.org/feed']
+defenc = "utf-8" if sys.getdefaultencoding() == "ascii" else sys.getdefaultencoding()
+
 FedMag = ['http://fedoraplanet.org/rss20.xml']
 
 
 HTML = u"""
-<!-- BLOG_HEADLINES_START -->
 """
 
 
@@ -30,19 +30,19 @@ for feed in map(feedparser.parse, FedMag):
 """
     cnt = 0
     for item in feed["items"][:4]:
-        if cnt % 2 == 0:
+        print (cnt)
+        if int(cnt) % 2 == 0:
+            print ('adding div')
             HTML += u"""
     <div class="col-sm-6 blog-headlines">
     """
-        # Date format: '%a, %d %b %Y %H:%M:%S +0000'
-        # removing '[...]' from the summary, so its cleaner
-        summary = item.summary.rstrip(' [&#8230;]').replace("&#8217;", "'").replace("&#8217", "'")
         item.title = item.title.replace("&", "&#38;")
         author, title = item.title.split(':')
         link = item.links[0]['href']
-        article_desc = item.description
+        # Remove image tag from beginning
+        article_desc = '\n'.join(item.description.split('\n')[1:])
         if len(article_desc) > 140:
-            article_desc = article_desc[120:] + '...'
+            article_desc = ' '.join(article_desc.split()[0:25]) + '...'
         # we got
         # Tue, 20 Oct 2015 03:28:42 +0000
         # But we expect
@@ -50,36 +50,45 @@ for feed in map(feedparser.parse, FedMag):
         article_date = ' '.join(item.updated.split()[:4])
         HTML += u"""
         <article>
-        <h3><a href="{article_url}>{article_title}</a></h3>
+        <h3><a href="{article_url}">{article_title}</a></h3>
         <p>{article_desc}</p>
         <p><a href="{article_url}">Read more</a></p>
         <p class="byline">by <span class="author">{author}</span> <span class="date">{article_date}</span></p>
         </article>
 """.format(article_url=link,
-           article_title=item.title,
+           article_title=title,
            article_desc=article_desc,
            article_date=article_date,
            author=author)
-        if cnt % 2 == 0:
+        cnt += 1
+        if int(cnt) % 2 == 0:
+            print ('ending div')
             HTML += u"""
     </div>
 """
-        cnt += 1
     HTML += u"""
 </div>
 </div>
 </div>
-<!-- BLOG_HEADLINES_END -->
 """
 
-INDEX_FILE = os.path.join(os.getcwd(), '_site', 'index.html')
-with open(INDEX_FILE, 'r') as f:
-    contents = f.read()
+INDEX_FILE = os.path.join('.', '_site', 'index.html')
+with codecs.open(INDEX_FILE, 'r', 'utf8') as f:
+    contents = [line for line in f.readlines()]
 if contents:
-    with open(INDEX_FILE, 'w') as f:
-        regexp = r'<!-- BLOG_HEADLINES_START -->.*<!-- BLOG_HEADLINES_END -->'
-        #print (re.search(regexp, contents, re.M | re.DOTALL))
-        #print (HTML)
-        contents = re.sub(regexp, HTML, contents, re.M | re.DOTALL)
-        #print (contents)
-        f.write(contents)
+    with codecs.open(INDEX_FILE, 'w', 'utf8') as f:
+        found_start = False
+        for line in contents:
+            if not found_start:
+                f.write(line)
+            if '<!-- BLOG_HEADLINES_START -->' in line:
+                f.write(HTML)
+                found_start = True
+                continue
+            if '<!-- BLOG_HEADLINES_END -->' in line:
+                found_start = False
+                continue
+
+    #regexp = r'.*(<!-- BLOG_HEADLINES_START -->)(.*)(<!-- BLOG_HEADLINES_END -->).*'
+    #print (re.search(regexp, contents, re.MULTILINE | re.DOTALL))
+    #contents = re.sub(regexp, r'\1 MYREPLACE \3', contents, re.DOTALL | re.MULTILINE)
