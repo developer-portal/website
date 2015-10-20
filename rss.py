@@ -30,9 +30,7 @@ for feed in map(feedparser.parse, FedMag):
 """
     cnt = 0
     for item in feed["items"][:4]:
-        print (cnt)
         if int(cnt) % 2 == 0:
-            print ('adding div')
             HTML += u"""
     <div class="col-sm-6 blog-headlines">
     """
@@ -62,7 +60,6 @@ for feed in map(feedparser.parse, FedMag):
            author=author)
         cnt += 1
         if int(cnt) % 2 == 0:
-            print ('ending div')
             HTML += u"""
     </div>
 """
