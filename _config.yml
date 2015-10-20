@@ -38,6 +38,7 @@ exclude:
   - README.md
   - "*.sh"
   - "*.rb"
+  - "*.py"
   - "*.txt"
   - "static/**/*.html"
   - "**/LICENSE"
