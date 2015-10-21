@@ -6,11 +6,15 @@ import os
 import sys
 import feedparser
 import re
+import sys
 
 defenc = "utf-8" if sys.getdefaultencoding() == "ascii" else sys.getdefaultencoding()
 
 FedMag = ['http://fedoraplanet.org/rss20.xml']
 
+if len(sys.argv) > 2:
+    print ('Alone script or only one argument is allowed.')
+    sys.exit(1)
 
 HTML = u"""
 """
@@ -69,7 +73,10 @@ for feed in map(feedparser.parse, FedMag):
 </div>
 """
 
-INDEX_FILE = os.path.join('.', '_site', 'index.html')
+if len(sys.argv) == 1:
+    INDEX_FILE = os.path.join('.', '_site', 'index.html')
+else:
+    INDEX_FILE = sys.argv[1]
 with codecs.open(INDEX_FILE, 'r', 'utf8') as f:
     contents = [line for line in f.readlines()]
 if contents:
