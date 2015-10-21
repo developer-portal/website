@@ -4,7 +4,7 @@ RSpec.shared_examples_for 'Page' do
     expect(page).to have_css("#logo-col a[href~='/']")
     expect(page).to have_link("Start a project", href: '/start.html')
     expect(page).to have_link("Get tools", href: '/tools.html')
-    expect(page).to have_link("Technology overview", href: '/tech.html')
+    expect(page).to have_link("Languages & databases", href: '/tech.html')
     expect(page).to have_link("Deploy and distribute", href: '/deployment.html')
     expect(page).to have_css("ul.nav li", count: 4)
   end
