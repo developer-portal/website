@@ -91,6 +91,7 @@ if contents:
                 continue
             if '<!-- BLOG_HEADLINES_END -->' in line:
                 found_start = False
+                f.write(line)
                 continue
 
     #regexp = r'.*(<!-- BLOG_HEADLINES_START -->)(.*)(<!-- BLOG_HEADLINES_END -->).*'
