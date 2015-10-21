@@ -18,10 +18,10 @@ fi
 
 # Install dependencies if missing
 echo "Checking dependencies..."
-ssh $SITE "rpm -q ruby && rpm -q rubygem-liquid && rpm -q rubygem-actionview"
+ssh $SITE "rpm -q python-feedparser"
 if [ "$?" != 0 ]; then
   echo "Installing dependencies..."
-  ssh $SITE "sudo dnf install -y ruby rubygem-liquid rubygem-actionview"
+  ssh $SITE "sudo dnf install -y python-feedparser"
 fi
 
 # Install the generated site from _site to /var/www/html
@@ -30,5 +30,5 @@ scp -r _site/** $SITE:/var/www/html
 
 # Install the RSS and associated cron job scripts
 echo "Uploading scripts..."
-scp rss.rb $SITE:/root
+scp rss.py $SITE:/root
 scp cron.sh $SITE:/etc/cron.hourly
