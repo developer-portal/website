@@ -72,6 +72,15 @@ $fedora-blue:      #3c6eb4;
   .entries {
     top: 34px;
   }
+  .carousel .headlines img {
+    width: 250px;
+  }
+}
+@media all and (min-width: 781px) {
+  // Make carrousel height the same for all items
+  .carousel .headlines {
+    min-height: 290px;
+  }
 }
 @media all and (min-width: 1100px) {
   #search {
@@ -81,11 +90,9 @@ $fedora-blue:      #3c6eb4;
     z-index: 10;
     width: 288px;
   }
-}
-@media all and (min-width: 781px) {
   // Make carrousel height the same for all items
   .carousel .headlines {
-    min-height: 340px;
+    min-height: 240px;
   }
 }
 @media all and (max-width: 780px) {
@@ -109,3 +116,4 @@ $fedora-blue:      #3c6eb4;
     h2, p { margin-left: 50px; }
   }
 }
+
