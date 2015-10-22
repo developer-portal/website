@@ -1,3 +1,7 @@
 _site
 .sass-cache
 .swp
+*.swp
+.DS_Store
+content
+.vagrant
