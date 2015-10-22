@@ -6,25 +6,23 @@
     <div class="title container" id="{{ page.section }}">
       <div class="container">
         <div class="row">
-          <div class="col-sm-2" id="page-logo">
+          <div class="col-sm-6 col-xs-12" id="page-logo">
             {% for p in site.pages %}
               {% if p.page == page.page %}
                 {% if p.section %}
-                  <img class="img-circle" style="background-color: white; padding: 6px; width:100px; margin-top: 30px; margin-right: 20px;" src="{{ p.page | page_logo }}">
+                  <img class="img-circle" src="{{ p.page | page_logo }}">
+                {% endif %}
+              {% endif %}
+            {% endfor %}
+            {% for p in site.pages %}
+              {% if p.page == page.page %}
+                {% if p.section %}
+                  <h1>{{ p.title }}</h1>
                 {% endif %}
               {% endif %}
             {% endfor %}
           </div>
-          <div class="col-sm-4" id="page-title">
-            {% for p in site.pages %}
-              {% if p.page == page.page %}
-                {% if p.section %}
-                  <h1 style="margin-top:30px">{{ p.title }}</h1>
-                {% endif %}
-              {% endif %}
-            {% endfor %}
-          </div>
-          <div class="col-sm-6" id="page-description">
+          <div class="col-sm-6 Xhidden-xs" id="page-description">
             {% for p in site.pages %}
               {% if p.page == page.page %}
                 {% if p.section %}
@@ -38,11 +36,8 @@
     </div>
     <div class="container">
       <div class="row">
-        <div class="col-sm-9">
-          {{ content }}
-        </div>
         {% assign sorted_pages = site.pages | sort: "order" %}
-        <div class="col-sm-3">
+        <div class="col-sm-3 col-sm-push-9">
           <div class="list-group">
             {% for p in sorted_pages %}
               {% if p.page == page.page %}
@@ -59,6 +54,12 @@
               {% endif %}
             {% endfor %}
           </div>
+        </div>
+        <div class="col-sm-9 col-sm-pull-3">
+          {{ content }}
+        </div>
+        <div class="col-xs-12">
+          <hr>
           <div id="ask-fedora">
             Have a question?
             {% if page.page == 'go' %}

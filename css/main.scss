@@ -28,6 +28,16 @@ $on-laptop:        800px;
 $fedora-dark-blue: #294172;
 $fedora-blue:      #3c6eb4;
 
+// Bootstrap widths
+$screen-sm-min: 768px;
+$screen-md-min: 992px;
+$screen-lg-min: 1200px;
+ 
+$screen-xs-max: ($screen-sm-min - 1);
+$screen-sm-max: ($screen-md-min - 1);
+$screen-md-max: ($screen-lg-min - 1);
+
+
 
 // Using media queries with like this:
 // @include media-query($on-palm) {
