@@ -39,7 +39,7 @@ for feed in map(feedparser.parse, FedMag):
     <div class="col-sm-6 blog-headlines">
     """
         item.title = item.title.replace("&", "&#38;")
-        author, title = item.title.split(':')
+        author, title = item.title.split(':', 1)
         link = item.links[0]['href']
         # Remove image tag from beginning
         article_desc = '\n'.join(item.description.split('\n')[1:])
