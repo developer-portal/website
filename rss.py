@@ -8,6 +8,8 @@ import feedparser
 import re
 import sys
 
+feedparser._HTMLSanitizer.unacceptable_elements_with_end_tag.add('<div>')
+
 defenc = "utf-8" if sys.getdefaultencoding() == "ascii" else sys.getdefaultencoding()
 
 FedMag = ['http://fedoraplanet.org/rss20.xml']
@@ -45,6 +47,8 @@ for feed in map(feedparser.parse, FedMag):
         article_desc = '\n'.join(item.description.split('\n')[1:])
         if len(article_desc) > 140:
             article_desc = ' '.join(article_desc.split()[0:25]) + '...'
+        if not article_desc.startswith('<p>'):
+            article_desc = '<p>%s</p>' % article_desc
         # we got
         # Tue, 20 Oct 2015 03:28:42 +0000
         # But we expect
@@ -53,7 +57,7 @@ for feed in map(feedparser.parse, FedMag):
         HTML += u"""
         <article>
         <h3><a href="{article_url}">{article_title}</a></h3>
-        <p>{article_desc}</p>
+        {article_desc}
         <p><a href="{article_url}">Read more</a></p>
         <p class="byline">by <span class="author">{author}</span> <span class="date">{article_date}</span></p>
         </article>
