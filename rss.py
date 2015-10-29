@@ -46,7 +46,7 @@ for feed in map(feedparser.parse, FedMag):
         # Remove image tag from beginning
         article_desc = '\n'.join(item.description.split('\n')[1:])
         # remove html tags from description
-        re.sub('<[^<]+?>', '', article_desc)
+        article_desc = re.sub('<[^<]+?>', '', article_desc)
         if len(article_desc) > 140:
             article_desc = ' '.join(article_desc.split()[0:25]) + '...'
         if not article_desc.startswith('<p>'):
