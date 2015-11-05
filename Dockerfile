@@ -19,7 +19,7 @@ RUN chown -R dp:dp /opt/developerportal
 
 USER dp
 
-RUN gem install jekyll --pre
+RUN gem install jekyll --version 3.0.0.pre.beta10
 RUN gem install nokogiri -- --use-system-libraries
 RUN gem install jekyll-lunr-js-search jekyll-sitemap
 
