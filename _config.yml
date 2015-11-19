@@ -41,6 +41,7 @@ exclude:
   - "*.py"
   - "*.txt"
   - "static/**/*.html"
+  - "LICENSE"
   - "**/LICENSE"
   - "**/LICENSE-MIT"
   - "**/README.md"
