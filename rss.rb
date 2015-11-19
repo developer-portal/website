@@ -1,4 +1,6 @@
 #!/usr/bin/ruby
+# NOTE: We now use the Python implementation of the script available as rss.py.
+#
 # This script can update the title page from any RSS feed, but concrete
 # adjustments are done specifically to Fedora Planet.
 #
