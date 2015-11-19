@@ -11,6 +11,8 @@ Vagrant.
 
 ### Using Vagrant
 
+If you don't have Vagrant installed, you can check Fedora Developer Portal on [installing Vagrant with libvirt provider](https://developer.fedoraproject.org/tools/vagrant/vagrant-libvirt.html). Other dependencies are installed automatically on the guest.
+
 To start developing clone the *website* and *content* repositories and run `vagrant up`. Afterwards just start the Jekyll server at 0.0.0.0 (instead of default loopback).
 
 ```bash
@@ -26,8 +28,6 @@ Once done, you can open http://127.0.0.1:4000/ on your host to see the generated
 
 We use `rsync` by default so you need to run `vagrant rsync-auto` on your host to keep the sources synced.
 
-If you don't have Vagrant installed, here is how to do it on Fedora:
-https://github.com/developer-portal/content/blob/master/tools/vagrant/vagrant-libvirt.md
 
 ### Using a Docker container
 
