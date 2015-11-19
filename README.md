@@ -24,7 +24,7 @@ To build the site run `jekyll build` or `jekyll serve`. You need to install [dep
 
 We have some basic Capybara/Webkit test specifications that can help you to notice if something broke. They will also check all internal links between pages so you should also run them to test changes in `content` repository.
 
-To execute the test suite run `$ rspec spec`. You need to install [/setup.sh](dependencies) first and the site has to be already generated and available in `_site/` folder.
+To execute the test suite run `rspec spec`. You need to install [dependencies](/setup.sh) first and the site has to be already generated and available in `_site/` folder.
 
 ## Contributing
 
