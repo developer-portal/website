@@ -7,9 +7,11 @@ If you are here to submit issue or PR regarding the content of the portal, pleas
 
 ## Implementation
 
+The whole site is generated with [Jekyll](http://jekyllrb.com/) as a static site with some dynamic parts. Site search functionality is implemented in JavaScript and the index is pre-generated during the Jekyll build.
+
 ### Dynamic part of the site
 
-There is an `rss.rb` script that replaces the blog posts section on the index page in generated `_site/` from the Fedora Planet.
+There is an `rss.py` script that replaces the blog posts section on the index page in the generated `_site/` from the Fedora Planet.
 
 ## Development
 
@@ -18,25 +20,13 @@ to spin up the whole development environment. [content](https://github.com/devel
 
 See our [development guide](/DEVELOPMENT.md) on how to run the site locally for development.
 
-To build the site run `jekyll build` or `jekyll serve`.
+To build the site run `jekyll build` or `jekyll serve`. You need to install [/setup.sh](dependencies) first.
 
 ## Tests
 
 We have some basic Capybara/Webkit test specifications that can help you to notice if something broke. They will also check all internal links between pages so you should also run them to test changes in `content` repository.
 
-To install test dependencies run:
-
-```
-$ sudo dnf install rubygem-rack rubygem-capybara rubygem-rspec -y
-```
-
-They are part of `setup.sh` script that installs all development dependencies.
-
-To execute the test suite run:
-
-```
-$ rspec spec
-```
+To execute the test suite run `$ rspec spec`. You need to install [/setup.sh](dependencies) first and the site has to be already generated and available in `_site/` folder.
 
 ## Contributing
 
