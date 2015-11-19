@@ -9,8 +9,6 @@ If you are here to submit issue or PR regarding the content of the portal, pleas
 
 The whole site is generated with [Jekyll](http://jekyllrb.com/) as a static site with some dynamic parts. Site search functionality is implemented in JavaScript and the index is pre-generated during the Jekyll build.
 
-### Dynamic part of the site
-
 There is an `rss.py` script that replaces the blog posts section on the index page in the generated `_site/` from the Fedora Planet.
 
 ## Development
