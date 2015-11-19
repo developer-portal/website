@@ -1,14 +1,15 @@
 # Website for Fedora Developer Portal
 
-This repository contains Jekyll templates, HTML and CSS files for the Fedora Developer Portal.
+This repository contains [Jekyll](http://jekyllrb.com/) templates, CSS styles and images for the [Fedora Developer Portal](https://developer.fedoraproject.org/).
 
 If you are here to submit issue or PR regarding the content of the portal, please do so in the `content` repository:
-https://github.com/developer-portal/content.
+[https://github.com/developer-portal/content](https://github.com/developer-portal/content).
 
-## Dynamic part of the site
+## Implementation
+
+### Dynamic part of the site
 
 There is an `rss.rb` script that replaces the blog posts section on the index page in generated `_site/` from the Fedora Planet.
-
 
 ## Development
 
