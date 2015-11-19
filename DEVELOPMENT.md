@@ -5,9 +5,9 @@
 You can run the site locally on your host or via Vagrant or Docker. We recommend you to use
 Vagrant.
 
-- [Using Vagrant](https://github.com/developer-portal/website#using-vagrant)
-- [Using a Docker container](https://github.com/developer-portal/website#using-a-docker-container)
-- [Using local installation](https://github.com/developer-portal/website#using-local-installation)
+- [Using Vagrant](DEVELOPMENT.md#using-vagrant)
+- [Using a Docker container](DEVELOPMENT.md#using-a-docker-container)
+- [Using local installation](DEVELOPMENT.md#using-local-installation)
 
 ### Using Vagrant
 
