@@ -1,5 +1,16 @@
 #!/usr/bin/python -tt
 # -*- coding: utf-8 -*-
+#
+# This script can update the title page from any RSS feed, but concrete
+# adjustments are done specifically to Fedora Planet.
+#
+# It replaces the content between <!-- BLOG_HEADLINES_START -->
+# and <!-- BLOG_HEADLINES_END --> in _site/index.html. The file
+# path of index.html can be passed as an argument.
+#
+# Usage:
+#
+#   ./rss.py _site/index.html
 
 import codecs
 import os
@@ -101,7 +112,3 @@ if contents:
                 found_start = False
                 f.write(line)
                 continue
-
-    #regexp = r'.*(<!-- BLOG_HEADLINES_START -->)(.*)(<!-- BLOG_HEADLINES_END -->).*'
-    #print (re.search(regexp, contents, re.MULTILINE | re.DOTALL))
-    #contents = re.sub(regexp, r'\1 MYREPLACE \3', contents, re.DOTALL | re.MULTILINE)
