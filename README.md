@@ -13,12 +13,12 @@ There is an `rss.py` script that replaces the blog posts section on the index pa
 
 ## Development
 
-We use [Jekyll](http://jekyllrb.com/) to generate the site, `setup.sh` script to install development dependencies (on Fedora) and we also provide `Vagrantfile` and `Dockerfile`
+We use [Jekyll](http://jekyllrb.com/) to generate the site, `setup.sh` script to install development dependencies (on Fedora) and we also provide `[Vagrantfile](/Vagrantfile)` and `[Dockerfile](/Dockerfile)`
 to spin up the whole development environment. [content](https://github.com/developer-portal/content) repository is a git submodule.
 
 See our [development guide](/DEVELOPMENT.md) on how to run the site locally for development.
 
-To build the site run `jekyll build` or `jekyll serve`. You need to install [/setup.sh](dependencies) first.
+To build the site run `jekyll build` or `jekyll serve`. You need to install [dependencies](/setup.sh) first.
 
 ## Tests
 
