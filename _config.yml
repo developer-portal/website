@@ -36,6 +36,7 @@ exclude:
   - Vagrantfile
   - CONTRIBUTING.md
   - README.md
+  - DEVELOPMENT.md
   - "*.sh"
   - "*.rb"
   - "*.py"
