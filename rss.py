@@ -12,6 +12,7 @@
 #
 #   ./rss.py _site/index.html
 
+from __future__ import print_function
 import codecs
 import os
 import sys
@@ -46,7 +47,8 @@ for feed in map(feedparser.parse, FedMag):
     <div class="row">
 """
     cnt = 0
-    for item in feed["items"][:4]:
+    # Getting at least 4 items in case of some python exceptions.
+    for item in feed["items"][:6]:
         if int(cnt) % 2 == 0:
             HTML += u"""
     <div class="col-sm-6 blog-headlines">
@@ -55,15 +57,19 @@ for feed in map(feedparser.parse, FedMag):
         author, title = item.title.split(':', 1)
         link = item.links[0]['href']
         # Remove image tag from beginning
-        article_desc = '\n'.join(item.description.split('\n')[1:])
-        # remove html tags from description
-        article_desc = re.sub('<[^<]+?>', '', article_desc)
-        article_desc = re.sub('<', '&lt;', article_desc)
-        article_desc = re.sub('>', '&gt;', article_desc)
-        if len(article_desc) > 140:
-            article_desc = ' '.join(article_desc.split()[0:25]) + '...'
-        if not article_desc.startswith('<p>'):
-            article_desc = '<p>%s</p>' % article_desc
+        try:
+            article_desc = '\n'.join(item.description.split('\n')[1:])
+            # remove html tags from description
+            article_desc = re.sub('<[^<]+?>', '', article_desc)
+            article_desc = re.sub('<', '&lt;', article_desc)
+            article_desc = re.sub('>', '&gt;', article_desc)
+            if len(article_desc) > 140:
+                article_desc = ' '.join(article_desc.split()[0:25]) + '...'
+            if not article_desc.startswith('<p>'):
+                article_desc = '<p>%s</p>' % article_desc
+        except AttributeError:
+            print ('AttributeError. Going to next item')
+            continue
         # we got
         # Tue, 20 Oct 2015 03:28:42 +0000
         # But we expect
@@ -86,6 +92,9 @@ for feed in map(feedparser.parse, FedMag):
             HTML += u"""
     </div>
 """
+        # Condition if items were collected properly
+        if int(cnt) > 3:
+            break
     HTML += u"""
 </div>
 </div>
