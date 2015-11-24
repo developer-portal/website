@@ -1,4 +1,10 @@
 # Website for Fedora Developer Portal
+**[Project Page](https://fedoraproject.org/wiki/Websites/Developer)** |
+**[Content Repository](https://github.com/developer-portal/content)** |
+[Website Repository](https://github.com/developer-portal/website)
+<hr>
+
+
 
 This repository contains [Jekyll](http://jekyllrb.com/) templates, CSS styles and images for the [Fedora Developer Portal](https://developer.fedoraproject.org/). See the [project page](https://fedoraproject.org/wiki/Websites/Developer) on Fedora Wiki.
 
