@@ -1,12 +1,19 @@
 ---
 layout: search
-title: Search Fedora Developer Portal
+title: Search
 description: Search Fedora Developer Portal
-attribution: Union Station Abstract by DualD FlipFlop on Flickr, CC-BY-2.0
-photo-link: https://www.flickr.com/photos/duald/7423940266/
 ---
 
 <h2>Search results</h2>
+
+<div id="headline-search">
+  <form class="input-group" id="search" action="/search.html" method="get" style="position: relative; width: auto;">
+    <input type="text" id="search-query" class="form-control" name="q" placeholder="Search" autocomplete="off" style="position: relative;">
+    <span class="input-group-btn">
+      <button class="btn btn-default glyphicon glyphicon-search" type="submit" aria-hidden="true"></button>
+    </span>
+  </form>
+</div>
 
 <section id="search-results">
   <div class="entries" style="font-size: 15px; display: block; position: static; padding: 0; margin: 0; border: 0; width: 100%;">

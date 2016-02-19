@@ -3,6 +3,7 @@
   {% include head.html %}
   <body>
     {% include header.html %}
+    <!-- jumbo start -->
     <div class="title container" id="{{ page.section }}">
       <div class="container">
         <div class="row">
@@ -34,9 +35,11 @@
         </div>
       </div>
     </div>
+    <!-- jumbo end -->
     <div class="container">
       <div class="row">
         {% assign sorted_pages = site.pages | sort: "order" %}
+        <!-- menu start -->
         <div class="col-sm-3 col-sm-push-9">
           <div class="list-group">
             {% for p in sorted_pages %}
@@ -55,6 +58,7 @@
             {% endfor %}
           </div>
         </div>
+        <!-- menu end -->
         <div class="col-sm-9 col-sm-pull-3">
           {{ content }}
         </div>

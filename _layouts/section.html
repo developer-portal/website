@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  {% include head.html %}
+  <body>
+
+    <!-- The top blue thing -->
+    <div id="splash" class="splash-size-small splash-section-{{ page.category-name }}">
+      <div class="container">
+        {% include top-nav.html %}
+        {% include jumbo-section.html %}
+      </div>
+    </div>
+
+    <!-- Content -->
+    <div class="container">
+      <div class="section-content">
+        {{ content }}
+      </div>
+    </div>
+
+    <!-- Some other stuff -->
+    {% include contribute.html %}
+    {% include footer.html %}
+  </body>
+</html>

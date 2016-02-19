@@ -58,28 +58,32 @@ defaults:
       path: "content"
       type: "pages"
     values:
-      layout: "page"
+      layout: "content"
   -
     scope:
       path: "content/start"
       type: "pages"
     values:
       highlight_section: "start"
+      category-name: start
   -
     scope:
       path: "content/tools"
       type: "pages"
     values:
       highlight_section: "tools"
+      category-name: tools
   -
     scope:
       path: "content/tech"
       type: "pages"
     values:
       highlight_section: "tech"
+      category-name: tech
   -
     scope:
       path: "content/deployment"
       type: "pages"
     values:
       highlight_section: "deployment"
+      category-name: deploy

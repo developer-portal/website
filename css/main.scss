@@ -32,7 +32,7 @@ $fedora-blue:      #3c6eb4;
 $screen-sm-min: 768px;
 $screen-md-min: 992px;
 $screen-lg-min: 1200px;
- 
+
 $screen-xs-max: ($screen-sm-min - 1);
 $screen-sm-max: ($screen-md-min - 1);
 $screen-md-max: ($screen-lg-min - 1);
@@ -126,4 +126,3 @@ $screen-md-max: ($screen-lg-min - 1);
     h2, p { margin-left: 50px; }
   }
 }
-

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  {% include head.html %}
+  <body>
+
+    <!-- The top blue thing -->
+    <div id="splash" class="splash-size-small splash-section-{{ page.category-name }}">
+      <div class="container">
+        {% include top-nav.html %}
+        {% include jumbo-content.html %}
+      </div>
+    </div>
+
+    <!-- Content -->
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-3">
+          <div class="list-group content-menu">
+            {% assign sorted_pages = site.pages | sort: "order" %}
+            {% for p in sorted_pages %}
+              {% if p.page == page.page %}
+                {% if p.section %}
+                <a href="{{p.url}}" class="list-group-item {% if p.url == page.url %} active {% endif %}">{{ p.title }}</a>
+                {% endif %}
+              {% endif %}
+            {% endfor %}
+            {% for p in sorted_pages %}
+              {% if p.page == page.page %}
+                {% if p.section %}{% else %}
+                <a href="{{p.url}}" class="list-group-item {% if p.url == page.url %} active {% endif %}">{{ p.title }}</a>
+                {% endif %}
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+        <div class="col-sm-9">
+          <div class="panel panel-default content-content">
+            {{ content }}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Some other stuff -->
+    {% include contribute.html %}
+    {% include footer.html %}
+  </body>
+</html>
