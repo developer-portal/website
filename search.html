@@ -1,10 +1,8 @@
 ---
-layout: search
+layout: section
 title: Search
 description: Search Fedora Developer Portal
 ---
-
-<h2>Search results</h2>
 
 <div id="headline-search">
   <form class="input-group" id="search" action="/search.html" method="get" style="position: relative; width: auto;">
@@ -15,10 +13,12 @@ description: Search Fedora Developer Portal
   </form>
 </div>
 
-<section id="search-results">
-  <div class="entries" style="font-size: 15px; display: block; position: static; padding: 0; margin: 0; border: 0; width: 100%;">
-  </div>
-</section>
+<div class="panel panel-default">
+  <section id="search-results">
+    <div class="entries" style="font-size: 15px; display: block; position: static; padding: 0; margin: 0; border: 0; width: 100%;">
+    </div>
+  </section>
+</div>
 
 {% raw %}
 <script id="search-results-template" type="text/mustache">

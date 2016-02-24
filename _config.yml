@@ -34,7 +34,6 @@ kramdown:
 exclude:
   - Dockerfile
   - Vagrantfile
-  - CONTRIBUTING.md
   - README.md
   - DEVELOPMENT.md
   - RELEASE.md
@@ -48,7 +47,6 @@ exclude:
   - "**/LICENSE-MIT"
   - "**/README.md"
   - "**/Readme.md"
-  - "**/CONTRIBUTING.md"
   - "**/COPYING"
   - "**/README.md"
 
@@ -87,3 +85,15 @@ defaults:
     values:
       highlight_section: "deployment"
       category-name: deploy
+      attribution: Minotaur Rocket Launch at NASA Wallops by NASA Goddard Space Flight Center on Flickr, CC-BY-2.0
+      photo-link: https://www.flickr.com/photos/gsfc/5890869490/
+  -
+    scope:
+      path: "content/blabla.md"
+      type: "pages"
+    values:
+      url: /content/blabla.html
+      layout: content
+      category-name: contribute
+      page: contribute
+      title: Contribution Guidelines

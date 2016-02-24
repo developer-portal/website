@@ -51,7 +51,8 @@ body {
     background-color: white;
     padding: 6px;
     width: 100px;
-    margin-top: 40px;
+    margin-top: 50px;
+    margin-bottom: 50px;
     margin-right: 20px;
     float: left;
   }
@@ -82,24 +83,30 @@ body {
 
 // ###   splash pages   ############
 .splash-section-homepage {
-  background-image: url('/static/img/titles/title_front.png') !important;
+  background-image: url('/static/img/titles/title_front.jpg') !important;
 }
 
 .splash-section-start {
-  background-image: url('/static/img/titles/title_start.png') !important;
+  background-image: url('/static/img/titles/title_start.jpg') !important;
 }
 
 .splash-section-tools {
-  background-image: url('/static/img/titles/title_tools.png') !important;
+  background-image: url('/static/img/titles/title_tools.jpg') !important;
 }
 
 .splash-section-tech {
-  background-image: url('/static/img/titles/title_tech.png') !important;
+  background-image: url('/static/img/titles/title_tech.jpg') !important;
+  background-position: right 60% !important;
 }
 
 .splash-section-deploy {
-  background-image: url('/static/img/titles/title_deploy.png') !important;
+  background-image: url('/static/img/titles/title_deploy.jpg') !important;
   background-position: right 20% !important;
+}
+
+.splash-section-contribute {
+  background-image: url('/static/img/titles/title_general.jpg') !important;
+  background-position: right 60% !important;
 }
 
 
@@ -443,7 +450,7 @@ body .nav li a:hover {
  */
 
  footer {
-   margin-top: 80px;
+   margin-top: 0px;
  }
 
 .site-footer {
@@ -666,8 +673,6 @@ h3 a, h3 a:visited {
   color: white;
   width: 100% !important;
   padding: 22px 0;
-  padding-bottom: 80px !important;
-  margin-bottom: -80px;
 }
 
 #blog-features,
