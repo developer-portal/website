@@ -44,6 +44,9 @@
         </div>
         <div class="col-sm-9">
           <div class="panel panel-default content-content">
+            {% if page.label == "need-help" %}
+              {% include content-label-banner.html %}
+            {% endif %}
             {{ content }}
           </div>
         </div>

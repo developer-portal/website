@@ -15,23 +15,7 @@ photo-link: https://www.flickr.com/photos/aotaro/20952868875/
   </div>
   {% for p in site.pages %}
   {% if p.section == "tech-languages" %}
-  <div class="col-sm-6">
-    <a class="panel-link" href="{{ p.url }}">
-      <div class="panel panel-default">
-        <div class="panel-body">
-          <div class="media">
-            <div class="media-left">
-              <img style="height:100px" src="{{ p.page | page_logo }}">
-            </div>
-            <div class="media-body">
-              <h3>{{ p.title }}</h3>
-              <p>{{ p.description }}</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </a>
-  </div>
+    {% include content-link-panel.html %}
   {% endif %}
   {% endfor %}
 </div>
@@ -42,23 +26,7 @@ photo-link: https://www.flickr.com/photos/aotaro/20952868875/
   </div>
   {% for p in site.pages %}
   {% if p.section == "tech-database" %}
-  <div class="col-sm-6">
-    <a href="{{ p.url }}">
-      <div class="panel panel-default">
-        <div class="panel-body">
-          <div class="media">
-            <div class="media-left">
-              <img style="width:80px" src="{{ p.page | page_logo }}">
-            </div>
-            <div class="media-body">
-              <h3>{{ p.title }}</h3>
-              <p>{{ p.description }}</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </a>
-  </div>
+    {% include content-link-panel.html %}
   {% endif %}
   {% endfor %}
 </div>

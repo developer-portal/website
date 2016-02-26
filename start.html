@@ -14,23 +14,7 @@ photo-link: https://www.flickr.com/photos/catt1788/6335937959/
   </div>
   {% for p in site.pages %}
   {% if p.section == "start-sw" %}
-  <div class="col-sm-6">
-    <a class="panel-link" href="{{ p.url }}">
-      <div class="panel panel-default">
-        <div class="panel-body">
-          <div class="media">
-            <div class="media-left">
-              <img style="height:100px" src="{{ p.page | page_logo }}">
-            </div>
-            <div class="media-body">
-              <h3>{{ p.title }}</h3>
-              <p>{{ p.description }}</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </a>
-  </div>
+    {% include content-link-panel.html %}
   {% endif %}
   {% endfor %}
   <div class="col-sm-12">
@@ -38,23 +22,7 @@ photo-link: https://www.flickr.com/photos/catt1788/6335937959/
   </div>
   {% for p in site.pages %}
   {% if p.section == "start-hw" %}
-  <div class="col-sm-6">
-    <a class="panel-link" href="{{ p.url }}">
-      <div class="panel panel-default">
-        <div class="panel-body">
-          <div class="media">
-            <div class="media-left">
-              <img style="height:100px" src="{{ p.page | page_logo }}">
-            </div>
-            <div class="media-body">
-              <h3>{{ p.title }}</h3>
-              <p>{{ p.description }}</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </a>
-  </div>
+    {% include content-link-panel.html %}
   {% endif %}
   {% endfor %}
   <div class="col-sm-12">
@@ -62,23 +30,7 @@ photo-link: https://www.flickr.com/photos/catt1788/6335937959/
   </div>
   {% for p in site.pages %}
   {% if p.section == "start-tips" %}
-  <div class="col-sm-6">
-    <a class="panel-link" href="{{ p.url }}">
-      <div class="panel panel-default">
-        <div class="panel-body">
-          <div class="media">
-            <div class="media-left">
-              <img style="height:100px" src="{{ p.page | page_logo }}">
-            </div>
-            <div class="media-body">
-              <h3>{{ p.title }}</h3>
-              <p>{{ p.description }}</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </a>
-  </div>
+    {% include content-link-panel.html %}
   {% endif %}
   {% endfor %}
 </div>
