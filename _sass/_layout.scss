@@ -191,6 +191,28 @@ body {
 div.content-menu {
   margin-top: 40px;
   margin-bottom: 40px;
+
+  border: 1px solid transparent;
+  box-shadow: 0 1px 1px rgba(0,0,0,.05);
+
+  a {
+
+  }
+
+  a.active {
+    background-color: #2c5aa0!important;
+  }
+}
+
+.list-group-item {
+
+  border: 0!important;
+}
+.nothing-hahahah {
+  border-top-left-radius: 0px!important;
+  border-top-right-radius: 0px!important;
+  border-bottom-left-radius: 0px!important;
+  border-bottom-right-radius: 0px!important;
 }
 
 div.content-content {

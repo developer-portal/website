@@ -9,10 +9,10 @@
           <div class="media-body">
             <h3>
               {{ p.title }}
-              {% if p.label == "need-help" %}
-              <span class="label label-success">help needed</span>
-              {% endif %}
             </h3>
+            {% if p.label == "need-help" %}
+            <small><span class="label label-default" style="background-color: #159818"> Help Needed </span></small>
+            {% endif %}
             <p>{{ p.description }}</p>
           </div>
         </div>
