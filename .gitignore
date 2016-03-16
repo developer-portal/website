@@ -5,3 +5,4 @@ _site
 .DS_Store
 content
 .vagrant
+.jekyll-metadata
