@@ -2,8 +2,8 @@ require 'pathname'
 
 module Jekyll
   module LogoFilter
-    def page_logo(page)
-      "/static/logo/#{page}.png"
+    def subsection_logo(subsection)
+      "/static/logo/#{subsection}.png"
     end
   end
 end

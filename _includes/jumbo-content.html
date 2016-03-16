@@ -2,15 +2,15 @@
   <div class="col-sm-12">
 
     {% for p in site.pages %}
-      {% if p.page == page.page %}
+      {% if p.subsection == page.subsection %}
         {% if p.section %}
-          <img class="img-rounded" src="{{ p.page | page_logo }}">
+          <img class="img-rounded" src="{{ p.subsection | subsection_logo }}">
         {% endif %}
       {% endif %}
     {% endfor %}
 
     {% for p in site.pages %}
-      {% if p.page == page.page %}
+      {% if p.subsection == page.subsection %}
         {% if p.section %}
           <h2>{{ p.title }}</h2>
         {% endif %}
@@ -18,7 +18,7 @@
     {% endfor %}
 
     {% for p in site.pages %}
-      {% if p.page == page.page %}
+      {% if p.subsection == page.subsection %}
         {% if p.section %}
           <p>{{ p.description }}</p>
         {% endif %}
