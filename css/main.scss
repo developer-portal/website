@@ -52,12 +52,13 @@ $screen-md-max: ($screen-lg-min - 1);
     }
 }
 
+// Import components
+@import "components/syntax-highlighting";
+@import "components/mixins";
+
 // Import partials from `sass_dir` (defaults to `_sass`)
-@import
-        "base",
-        "layout",
-        "syntax-highlighting"
-;
+@import "base";
+@import "layout";
 
 // Responsive styles fixes
 @media all and (max-width: 1100px) {
