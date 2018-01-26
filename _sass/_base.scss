@@ -203,3 +203,47 @@ pre {
         }
     }
 }
+
+
+
+/**
+ * Tables
+ */
+table, th, td {
+    border: none;
+}
+
+table {
+    display: table;
+    tbody {
+        > tr:nth-child(odd) {
+            background-color: $background-color;
+        }
+        > tr:nth-child(even) {
+            background-color: darken($background-color, 10%);
+        }
+        > tr > td {
+            border-radius: 0;
+        }
+    }
+    thead tr th,
+    tbody tr td,
+    tfoot tr td {
+        text-align: center;
+    }
+}
+
+thead {
+    border-bottom: 1px solid $brand-color;
+}
+
+tfoot {
+    border-top: 1px solid $brand-color;
+}
+
+td,
+th {
+  padding: 5px 10px;
+  display: table-cell;
+  vertical-align: middle;
+}
