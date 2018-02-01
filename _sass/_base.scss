@@ -215,7 +215,12 @@ table, th, td {
 
 table {
     display: table;
-    tbody {
+    margin-bottom: 25px;
+    &.bordered > thead > tr,
+    &.bordered > tbody > tr {
+        border-bottom: 1px solid $brand-color;
+    }
+    &.striped > tbody {
         > tr:nth-child(odd) {
             background-color: $background-color;
         }
@@ -226,10 +231,18 @@ table {
             border-radius: 0;
         }
     }
-    thead tr th,
-    tbody tr td,
-    tfoot tr td {
-        text-align: center;
+    &.highlight > tbody > tr {
+        @include transition(background-color .25s ease);
+        &:hover {
+            background-color: lighten($brand-color, 30%);
+        }
+    }
+    &.centered {
+        thead tr th,
+        tbody tr td,
+        tfoot tr td {
+            text-align: center;
+        }
     }
 }
 
@@ -243,7 +256,9 @@ tfoot {
 
 td,
 th {
-  padding: 5px 10px;
-  display: table-cell;
-  vertical-align: middle;
+    padding: 5px 10px;
+    display: table-cell;
+    text-align: left;
+    vertical-align: middle;
+    border-radius: 2px;
 }
