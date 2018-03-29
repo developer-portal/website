@@ -1,4 +1,4 @@
-FROM fedora:22
+FROM fedora:23
 MAINTAINER Vaclav Pavlin <vpavlin@redhat.com>
 
 # Gems require ruby-devel and group C Development Tools and Libraries
@@ -19,7 +19,7 @@ RUN chown -R dp:dp /opt/developerportal
 
 USER dp
 
-RUN gem install jekyll --version 3.0.0.pre.beta10
+RUN gem install jekyll --version 3.1.6
 RUN gem install nokogiri -- --use-system-libraries
 RUN gem install jekyll-lunr-js-search jekyll-sitemap
 
