@@ -1,6 +1,6 @@
 # Site settings
 title: Fedora Developer Portal
-email: your-email@domain.com
+email: developer-portal@lists.fedoraproject.org
 description: > # this means to ignore newlines until "baseurl:"
   Fedora Developer Portal provides information for developers running 
   Fedora on their workstation or virtual machines.
@@ -96,3 +96,10 @@ defaults:
       category-name: contribute
       page: contribute
       title: Contribution Guidelines
+  -
+    scope:
+      path: ""
+    values:
+      fedora_release: "28"
+    
+
