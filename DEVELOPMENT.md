@@ -2,12 +2,12 @@
 
 ## Local development instance
 
-You can run the site locally on your host or via Vagrant or Docker. We recommend you to use
-Vagrant.
+You can run the site locally on your host or via Vagrant or Docker.
+We recommend you to use Vagrant or Local installation.
 
 - [Using Vagrant](DEVELOPMENT.md#using-vagrant)
-- [Using a Docker container](DEVELOPMENT.md#using-a-docker-container)
 - [Using local installation](DEVELOPMENT.md#using-local-installation)
+- [Using a Docker container](DEVELOPMENT.md#using-a-docker-container)
 
 ### Using Vagrant
 
@@ -28,36 +28,6 @@ Once done, you can open http://127.0.0.1:4000/ on your host to see the generated
 
 We use `rsync` by default so you need to run `vagrant rsync-auto` on your host to keep the sources synced.
 
-
-### Using a Docker container
-
-Docker container provides a simple way how to run the development instance of Developer Portal. Following command will start the Jekyll server in a container (with very similar output):
-
-```
-$ sudo docker run -it --rm developerportal/devel
-Configuration file: /website/_config.yml
-            Source: /website
-       Destination: /website/_site
-      Generating...
-                    done.
- Auto-regeneration: enabled for '/website'
-Configuration file: /website/_config.yml
-    Server address: http://172.17.1.16:8080/
-  Server running... press ctrl-c to stop.
-
-```
-
-The above command will serve the latest content available in Github repository. If you want to do some changes in a `website` repository and view them, you need to add argument `-v /path/to/your/repo:/opt/developerportal/website`:
-
-```
-$ sudo docker run -it --rm -v $PWD:/opt/developerportal/website developerportal/devel
-```
-
-In case you want to modify the `content` repository, you need to add argument `-v /path/to/content/repo:/opt/developerportal/website/content`:
-
-```
-$ sudo docker run -it --rm -v $PWD/content:/opt/developerportal/website/content developerportal/devel
-```
 
 ### Using local installation
 
@@ -88,4 +58,35 @@ If you just want to download the sources without uploading your keys get the sou
 
 ```bash
 $ git clone https://github.com/developer-portal/content.git
+```
+
+
+### Using a Docker container
+
+Docker container provides a simple way how to run the development instance of Developer Portal. Following command will start the Jekyll server in a container (with very similar output):
+
+```
+$ sudo docker run -it --rm developerportal/devel
+Configuration file: /website/_config.yml
+            Source: /website
+       Destination: /website/_site
+      Generating...
+                    done.
+ Auto-regeneration: enabled for '/website'
+Configuration file: /website/_config.yml
+    Server address: http://172.17.1.16:8080/
+  Server running... press ctrl-c to stop.
+
+```
+
+The above command will serve the latest content available in Github repository. If you want to do some changes in a `website` repository and view them, you need to add argument `-v /path/to/your/repo:/opt/developerportal/website`:
+
+```
+$ sudo docker run -it --rm -v $PWD:/opt/developerportal/website developerportal/devel
+```
+
+In case you want to modify the `content` repository, you need to add argument `-v /path/to/content/repo:/opt/developerportal/website/content`:
+
+```
+$ sudo docker run -it --rm -v $PWD/content:/opt/developerportal/website/content developerportal/devel
 ```
