@@ -81,7 +81,7 @@ Configuration file: /website/_config.yml
 
 ```
 
-The above command will serve the latest content available in Github repository. If you want to do some changes in a `website` repository and view them, you need to add argument `-v /path/to/your/repo:/opt/developerportal/website`:
+The above command will serve the latest content available in Github repository. If you want to do some changes in a `website` repository and view them, you need to add argument `-v /path/to/your/repo:/opt/developerportal/website:z`:
 
 ```
 $ sudo docker run -it --rm -v $PWD:/opt/developerportal/website:z developerportal/devel
