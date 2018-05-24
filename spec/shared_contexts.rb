@@ -17,31 +17,14 @@ RSpec.shared_examples_for 'Page' do
 
     # Footer links
     expect(page).to have_link("About Developer Portal", href: '/about.html')
-    expect(page).to have_link("About Fedora", href: '//getfedora.org/en/sponsors')
-    expect(page).to have_link("Sponsors", href: '//getfedora.org/en/sponsors')
-    expect(page).to have_link("Fedora Magazine", href: 'http://fedoramagazine.org')
-    expect(page).to have_link("Legal", href: '//fedoraproject.org/wiki/Legal:Main#Legal')
-    expect(page).to have_link("Get Fedora Workstation", href: '//getfedora.org/en/workstation/download')
-    expect(page).to have_link("Get Fedora Server", href: '//getfedora.org/en/server/download')
-    expect(page).to have_link("Get Fedora Cloud", href: '//getfedora.org/en/cloud/download')
-    expect(page).to have_link("Fedora Spins", href: '//spins.fedoraproject.org')
-    expect(page).to have_link("Fedora Labs", href: '//labs.fedoraproject.org')
-    #expect(page).to have_link("Fedora ARM@", href: '//arm.fedoraproject.org')
-    expect(page).to have_link("Torrent Downloads", href: 'http://torrents.fedoraproject.org')
-    expect(page).to have_link("Get Help", href: '//fedoraproject.org/wiki/Communicating_and_getting_help')
-    expect(page).to have_link("Ask Fedora", href: '//ask.fedoraproject.org/')
-    expect(page).to have_link("Forums", href: 'http://fedoraforum.org/')
-    expect(page).to have_link("Common Bugs", href: '//fedoraproject.org/wiki/Common_F25_bugs')
-    expect(page).to have_link("Installation Guide", href: '//docs.fedoraproject.org/en-US/Fedora/25/html/Installation_Guide')
-    expect(page).to have_link("Join Fedora", href: '//fedoraproject.org/wiki/Join')
+    expect(page).to have_link("Fedora Magazine", href: 'https://fedoramagazine.org')
+    expect(page).to have_link("Torrent Downloads", href: 'https://torrents.fedoraproject.org')
+    expect(page).to have_link("Forums", href: 'https://fedoraforum.org/')
     expect(page).to have_link("Planet Fedora", href: 'http://fedoraplanet.org')
-    expect(page).to have_link("Fedora SIGs", href: '//fedoraproject.org/wiki/SIGs')
-    expect(page).to have_link("Fedora Account System", href: '//admin.fedoraproject.org/accounts/')
-    expect(page).to have_link("Fedora Community", href: 'http://fedoracommunity.org/')
-    expect(page).to have_link("Learn more about the relationship between Red Hat and Fedora »", href: '//www.redhat.com/en/technologies/linux-platforms/articles/relationship-between-fedora-and-rhel')
+    expect(page).to have_link("Fedora Community", href: 'https://fedoracommunity.org/')
     expect(page).to have_css(".footer a", count: 27)
 
-    expect(page).to have_css(".footer p.copy", text: "© 2015 Red Hat, Inc. and others.")
+    expect(page).to have_css(".footer p.copy", text: /© [0-9]+ Red Hat, Inc. and others./)
   end
 end
 
