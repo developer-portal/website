@@ -17,6 +17,7 @@ markdown: kramdown
 gems:
   - jekyll-lunr-js-search
   - jekyll-sitemap
+  - jekyll-email-protect
 
 # Configure search
 lunr_search:
