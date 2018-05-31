@@ -1,6 +1,4 @@
 require 'spec_helper'
-require 'ap'
-require 'uri'
 class Links
   def initialize(all_links,urls)
     @n = Array.new
@@ -71,7 +69,6 @@ PAGES.each do |p|
       links.each do |link|
         url=link[:href]
         if !is_uri? url
-          #ap [link.path, link.text, link[:href]]
           page.find(:xpath, link.path).click
           expect(page.status_code).to be(200), "expected link '#{link.text}' to work"
         end
@@ -84,7 +81,6 @@ PAGES.each do |p|
       links.each do |link|
         url=link[:href]
         if is_uri? url
-          #ap [link.path, link.text, link[:href]]
           result = Links.url_exists? url
           expect(result).to be_truthy, "expected link '#{link.text}' => '#{link[:href]}' to work (Error code '#{status}')"
         end
