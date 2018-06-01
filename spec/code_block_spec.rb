@@ -8,54 +8,40 @@ PAGES = Dir.glob(content)
 def extract_code(parent)
   codespans = []
   parent.children.each do |child|
-    
-    # Checks ... parent value hasn't got any sibling or begin with '\n'
-                                                                    #<<< TODO: ^^^ Why?
+    # Checks if child.value hasn't got any sibling or begin with '\n', because only code is needed
     if child.type == :codespan \
-        && !child.value.nil? \                                      #<<< remove?, investigate
-        && !codespans.include?(child.value) \                       #<<< remove, keep context
-        && ((parent.children.size == 1) || (child.value[/^\n/]))    #<<< use start_with?
-      
-      codespans.push child.value.gsub "\n",' '                      #<<< .split and add to codespans
-                                                                    #<<< add .trim - white space in the beginning and end
+      && ((parent.children.size == 1) || (child.value.start_with? ?\n))
+        codespans += child.value.strip().split("\n").map! { |x| x.strip()}
     end
-
     codespans += extract_code(child)
   end
   codespans
 end
 
 PAGES.each do |page|
-  generated_page = Kramdown::Document.new(File.read(page))          #<<< MD
-  codespans = extract_code(generated_page.root)                     #<<< lines of code, rename?
-  results = []                                                      #<<< to Hash: {codespan => result}
-
+  markdown_document = Kramdown::Document.new(File.read(page))
+  code_lines = extract_code(markdown_document.root)
+  results = {}
+  code_lines.each do |code|
+    results[code] = system("bash", "-n", "-c", code, :err => File::NULL)
+  end
   describe 'Command in Markdown file' do
+    results.keys.each do |code|
+      it 'has a good syntax' do
+        expect(results[code]).to be_truthy,"Something wrong with: '#{code}'"
+      end
+      next
+      it 'does not begin with #' do
+        skip
+      end
 
-    it 'has a good syntax' do                                       #<<< passes syntax check
-      codespans.each do |code|
-        if code[/^\$/] #code starts with '$'
-          results.push([code,system('bash', '-n', '-c', code, "&>/dev/null")])       #<<< do not execute here
-          expect(results[-1][1]).to be_truthy,"Something wrong with: '#{code}'"
-        elsif code[/^\#/]                                           #<<< code.starts_with? ?#
-          #ap code
-        else #code starts with something else
-          #ap code
-        end
+      it 'starts with $' do
+        skip
+      end
+
+      it 'runs dnf with sudo' do
+        skip
       end
     end
-    
-    it 'does not begin with #' do
-      skip
-    end
-    
-    it 'starts with $' do
-      skip
-    end
-    
-    it 'runs dnf with sudo' do
-      skip
-    end
-  
   end
 end
