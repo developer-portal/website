@@ -18,6 +18,7 @@ gems:
   - jekyll-lunr-js-search
   - jekyll-sitemap
   - jekyll-email-protect
+  - jekyll-git-authors
 
 # Configure search
 lunr_search:
