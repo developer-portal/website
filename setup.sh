@@ -13,3 +13,4 @@ gem uninstall jekyll || :
 gem install jekyll-lunr-js-search
 gem install jekyll-sitemap
 gem install jekyll-email-protect
+gem install jekyll-git-authors
