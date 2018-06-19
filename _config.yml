@@ -14,7 +14,7 @@ encoding: utf-8
 markdown: kramdown
 
 # Dependencies
-gems:
+plugins:
   - jekyll-lunr-js-search
   - jekyll-sitemap
   - jekyll-email-protect
