@@ -13,11 +13,12 @@ We recommend you to use Vagrant or Local installation.
 
 If you don't have Vagrant installed, you can check Fedora Developer Portal on [installing Vagrant with libvirt provider](https://developer.fedoraproject.org/tools/vagrant/vagrant-libvirt.html). Other dependencies are installed automatically on the guest.
 
-To start developing clone the *website* and *content* repositories and run `vagrant up`. Afterwards just start the Jekyll server at 0.0.0.0 (instead of default loopback).
+To start developing clone the *website* repository and init submodules and run `vagrant up`. Afterwards just start the Jekyll server at 0.0.0.0 (instead of default loopback).
 
 ```bash
 $ git clone https://github.com/developer-portal/website.git && cd website
-$ git clone https://github.com/developer-portal/content.git
+$ git submodule init
+$ git submodule update
 $ vagrant up
 $ vagrant ssh
 vagrant$ cd /vagrant
