@@ -33,7 +33,7 @@ To execute the test suite run `rspec spec`. You need to install [dependencies](/
 
 ## Contributing
 
-Contributions are welcome! Information about contributing is at [developer-portal.github.io](https://developer-portal.github.io/).
+Contributions are welcome! For more information see our [Contributing Guide](https://developer-portal.github.io/contributing).
 
 You can find us on `freenode` under `#developer-portal` if you have any further questions.
 
