@@ -1,4 +1,80 @@
-{% if page.url != '/search.html' %}
+{% if page.url == '/search.html' %}
+<!-- // search.html page only -->
+<style media="screen, print">
+#search-results {
+  display: block;
+  position: static;
+  padding: 20px;
+  margin: 0;
+  border: 0;
+  width: 100%;
+}
+#search-results a {
+  color: #000;
+  text-decoration: none;
+}
+#search-results a:visited {
+  color: #000;
+}
+#search-results article, a {
+  width: 100%;
+}
+#search-results a {
+  display: block;
+}
+#search-results article:hover {
+  background-color: #e6e6e6;
+}
+#search-results h1 {
+  text-align: center;
+}
+</style>
+  {% raw %}
+  <script id="search-results-template" type="text/mustache">
+  <h1>Search results</h1>
+    {{#entries}}
+      <article>
+        <h3>
+          <a href="{{url}}">{{title}}</a>
+        </h3>
+      </article>
+    {{/entries}}
+  </script>
+  {% endraw %}
+{% else %}
+<!-- // every other page -->
+<style media="screen, print">
+#search-results {
+  position: absolute;
+  top: 44px;
+  right: 15px;
+  z-index: 10;
+  width: 288px;
+  max-height: 260px;
+  overflow-y: scroll;
+  padding: 0 10px 0 10px;
+  background-color: #fff;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  box-shadow: 0 1px 1px rgba(0,0,0,.05);
+}
+#search-results a {
+  color: #000;
+  text-decoration: none;
+}
+#search-results a:visited {
+  color: #000;
+}
+#search-results article, a {
+  width: 100%;
+}
+#search-results a {
+  display: block;
+}
+#search-results article:hover {
+  background-color: #e6e6e6;
+}
+</style>
   <form class="input-group" id="search" action="/search.html" method="get">
     <input type="text" id="search-query" class="form-control" name="q" placeholder="Search" autocomplete="off">
     <span class="input-group-btn">
