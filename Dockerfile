@@ -3,8 +3,8 @@ MAINTAINER Developer-portal <developer-portal@lists.fedoraproject.org>
 
 # Gems require ruby-devel and group C Development Tools and Libraries
 # We need git to get a website and a content of Developer Portal
-# Nodejs is needed by Jekyll and iproute provides ip command which let's us to set host for Jekyll properly
-# sudo is needed for setup.sh to not fail when run as root
+# iproute provides ip command which let's us to set host for Jekyll properly
+# sudo is used in setup.sh
 
 ADD . /opt/developerportal/website/
 RUN dnf -y update && \
@@ -19,8 +19,7 @@ USER dp
 RUN cd /opt/developerportal/website && \
     git checkout master && \
     git reset --hard origin/master && \
-    git submodule init && \
-    git submodule update && \
+    git submodule update --init --recursive && \
     cd content && \
     git checkout master && \
     git reset --hard origin/master
@@ -28,11 +27,10 @@ RUN cd /opt/developerportal/website && \
 # Jekyll runs on port 8080
 EXPOSE 8080
 
-# VOLUME [ /opt/developerportal/website, /opt/developerportal/website/content ]
-
 # Update the content on every run of the container
 CMD export LANG=en_US.UTF-8 && \
     cd /opt/developerportal/website/content && \
     git pull && \
     cd /opt/developerportal/website && \
+    git pull && \
     jekyll serve --force_polling -P 8080 -H $(ip addr show eth0 | sed -n 's/inet \([^ /]*\).*/\1/p')
