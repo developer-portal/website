@@ -29,8 +29,7 @@ EXPOSE 8080
 
 # Update the content on every run of the container
 CMD export LANG=en_US.UTF-8 && \
-    cd /opt/developerportal/website/content && \
-    git pull && \
     cd /opt/developerportal/website && \
     git pull && \
+    git submodule update --recursive --remote && \
     jekyll serve --force_polling -P 8080 -H $(ip addr show eth0 | sed -n 's/inet \([^ /]*\).*/\1/p')
