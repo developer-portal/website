@@ -1,0 +1,11 @@
+source 'https://rubygems.org'
+
+gem 'jekyll'
+gem 'rack'
+gem 'capybara'
+gem 'rspec'
+gem 'nokogiri'
+gem 'jekyll-lunr-js-search'
+gem 'jekyll-sitemap'
+gem 'jekyll-email-protect'
+gem 'jekyll-git-authors'
