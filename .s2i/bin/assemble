@@ -1,0 +1,38 @@
+#!/bin/bash
+
+set -e
+
+if [ -n "$RUBYGEM_MIRROR" ]; then
+    bundle config mirror.https://rubygems.org $RUBYGEM_MIRROR
+fi
+
+shopt -s dotglob
+echo "---> Installing application source ..."
+mv /tmp/src/* ./
+
+export LANG=en_US.UTF-8
+
+echo "---> Building your Ruby application from source ..."
+
+if [ -f Gemfile ]; then
+  ADDTL_BUNDLE_ARGS="--retry 2"
+  if [ -f Gemfile.lock ]; then
+    ADDTL_BUNDLE_ARGS+=" --deployment"
+  fi
+
+  echo "---> Running 'bundle install ${ADDTL_BUNDLE_ARGS}' ..."
+  bundle install --path ./bundle ${ADDTL_BUNDLE_ARGS}
+
+  echo "---> Cleaning up unused ruby gems ..."
+  bundle clean -V
+fi
+
+python3 -m pip install --user feedparser
+
+fix-permissions ./
+
+[[ -d ./tmp ]] && chgrp -R 0 ./tmp && chmod -R g+rw ./tmp
+[[ -d ./db ]] && chgrp -R 0 ./db && chmod -R g+rw ./db
+set -e
+
+bundle exec jekyll build

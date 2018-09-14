@@ -1,0 +1,2 @@
+#!/bin/bash
+ruby -run -e httpd _site -p 8080
