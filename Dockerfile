@@ -1,43 +1,35 @@
-FROM fedora:22
-MAINTAINER Vaclav Pavlin <vpavlin@redhat.com>
+FROM fedora
+MAINTAINER Developer-portal <developer-portal@lists.fedoraproject.org>
 
 # Gems require ruby-devel and group C Development Tools and Libraries
 # We need git to get a website and a content of Developer Portal
-# Nodejs is needed by Jekyll and iproute provides ip command which let's us to set host for Jekyll properly
+# iproute provides ip command which let's us to set host for Jekyll properly
+# sudo is used in setup.sh
+
+ADD . /opt/developerportal/website/
 RUN dnf -y update && \
-    dnf -y install ruby-devel git nodejs iproute zlib-devel libxml2-devel libxslt-devel rubygem-nokogiri rubygem-actionview rubygem-rack rubygem-capybara rubygem-rspec && \
-    dnf -y group install "C Development Tools and Libraries" && \
+    dnf -y install sudo git iproute && \
+    useradd -u 1000 -d /opt/developerportal/website dp && \
+    chown -R dp:dp /opt/developerportal && \
+    /bin/bash /opt/developerportal/website/setup.sh && \
     dnf -y clean all
 
-RUN groupadd dp && useradd -g dp -u 1000 dp
-
-RUN mkdir /opt/developerportal
-WORKDIR /opt/developerportal
-
-ADD . website/
-RUN chown -R dp:dp /opt/developerportal
-
 USER dp
-
-RUN gem install jekyll --version 3.0.0.pre.beta10
-RUN gem install nokogiri -- --use-system-libraries
-RUN gem install jekyll-lunr-js-search jekyll-sitemap
-
-
-WORKDIR /opt/developerportal/website
-
 # Latest content for the Developer Portal is pulled automatically via submodules
-#RUN git submodule init && \
-#    git submodule update && \
-#    cd content && \
-#    git checkout master && \
-#    git pull
+RUN cd /opt/developerportal/website && \
+    git checkout master && \
+    git reset --hard origin/master && \
+    git submodule update --init --recursive && \
+    cd content && \
+    git checkout master && \
+    git reset --hard origin/master
 
-# Jekyll runs on port 80
+# Jekyll runs on port 8080
 EXPOSE 8080
 
-
-VOLUME [ /opt/developerportal/website, /opt/developerportal/website/content ]
-
 # Update the content on every run of the container
-CMD /home/dp/bin/jekyll serve --force_polling -P 8080 -H $(ip addr show eth0 | sed -n 's/inet \([^ /]*\).*/\1/p')
+CMD export LANG=en_US.UTF-8 && \
+    cd /opt/developerportal/website && \
+    git pull && \
+    git submodule update --recursive --remote && \
+    jekyll serve --force_polling -P 8080 -H $(ip addr show eth0 | sed -n 's/inet \([^ /]*\).*/\1/p')
