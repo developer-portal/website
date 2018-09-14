@@ -2,7 +2,7 @@
 title: Fedora Developer Portal
 email: developer-portal@lists.fedoraproject.org
 description: > # this means to ignore newlines until "baseurl:"
-  Fedora Developer Portal provides information for developers running 
+  Fedora Developer Portal provides information for developers running
   Fedora on their workstation or virtual machines.
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://developer.fedoraproject.org" # the base hostname & protocol for your site
@@ -50,6 +50,8 @@ exclude:
   - "**/Readme.md"
   - "**/COPYING"
   - "**/README.md"
+  - "bundle"
+# ^ Exclude `bundle` directory in OpenShift
 
 defaults:
   -
@@ -103,5 +105,3 @@ defaults:
       path: ""
     values:
       fedora_release: "28"
-    
-
