@@ -35,6 +35,8 @@ kramdown:
 exclude:
   - Dockerfile
   - Vagrantfile
+  - Gemfile
+  - Gemfile.lock
   - README.md
   - DEVELOPMENT.md
   - RELEASE.md
@@ -45,13 +47,10 @@ exclude:
   - "static/**/*.html"
   - "LICENSE"
   - "**/LICENSE"
-  - "**/LICENSE-MIT"
   - "**/README.md"
-  - "**/Readme.md"
-  - "**/COPYING"
-  - "**/README.md"
+  - "openshift-template.json"
   - "bundle"
-# ^ Exclude `bundle` directory in OpenShift
+# ^ Exclude `bundle` directory
 
 defaults:
   -
