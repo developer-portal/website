@@ -16,9 +16,9 @@ RUN dnf -y update && \
 
 USER dp
 # Latest content for the Developer Portal is pulled automatically via submodules
-RUN cd /opt/developerportal/website && \
-    git checkout master && \
-    git reset --hard origin/master && \
+RUN cd /opt/developerportal/ && \
+    rm -rf website && \
+    git clone https://github.com/developer-portal/website.git && \
     git submodule update --init --recursive && \
     cd content && \
     git checkout master && \
