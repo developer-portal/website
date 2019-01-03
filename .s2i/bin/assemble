@@ -11,3 +11,9 @@ bundle exec jekyll build
 # Remove everything other than _site
 shopt -s extglob
 rm -rf !(_site)
+
+# Drop empty lines
+find _site -type f -iname '*.html' | while read z; do
+  TMP="`ruby -ne 'BEGIN{ \$pre = false } ; x = \$_ ; \$pre = ( (x =~ /<pre/i) || (\$pre && !(x =~ /<\/pre/i) ) ) ; print unless (!\$pre && x =~ /^\s*$/)' < "$z"`"
+  echo "$TMP" > "$z"
+done
