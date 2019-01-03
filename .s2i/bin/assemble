@@ -7,5 +7,3 @@ bundle exec jekyll build
 # Remove everything and move content of _site to root folder
 shopt -s extglob
 rm -rf !(_site)
-mv _site/* .
-rm -rf _site
