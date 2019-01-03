@@ -3,7 +3,11 @@
 # $LANG fixes bug in jekyll-git-authors
 export LANG=en_US.UTF-8
 python3 -m pip install --user feedparser
+
+# Update content to latest
+git submodule update --recursive --remote
+
 bundle exec jekyll build
-# Remove everything and move content of _site to root folder
+# Remove everything other than _site
 shopt -s extglob
 rm -rf !(_site)
