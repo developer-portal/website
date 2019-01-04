@@ -7,6 +7,13 @@ python3 -m pip install --user feedparser
 # Update content to latest
 git submodule update --recursive --remote
 
+echo -n "--> Running "
+[[ -n "$REAL_BUILD" ]] && {
+  echo -n "developement"
+  echo > _includes/announcement.html
+} || echo -n "real"
+echo 'build'
+
 bundle exec jekyll build
 # Remove everything other than _site
 shopt -s extglob
