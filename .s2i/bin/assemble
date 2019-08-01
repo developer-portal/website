@@ -9,9 +9,9 @@ git submodule update --recursive --remote
 
 echo -n "--> Running "
 [[ -n "$REAL_BUILD" ]] && {
-  echo -n "developement"
+  echo -n "real"
   echo > _includes/announcement.html
-} || echo -n "real"
+} || echo -n "developement"
 echo 'build'
 
 bundle exec jekyll build
