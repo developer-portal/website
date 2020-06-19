@@ -20,6 +20,8 @@ plugins:
   - jekyll-email-protect
   - jekyll-git-authors
 
+layouts_dir: "_layouts/"
+
 # Configure search
 lunr_search:
   stopwords: "stopwords.txt"
@@ -103,4 +105,4 @@ defaults:
     scope:
       path: ""
     values:
-      fedora_release: "28"
+      fedora_release: "33"

@@ -1,35 +1,28 @@
 FROM fedora
 MAINTAINER Developer-portal <developer-portal@lists.fedoraproject.org>
 
-# Gems require ruby-devel and group C Development Tools and Libraries
-# We need git to get a website and a content of Developer Portal
-# iproute provides ip command which let's us to set host for Jekyll properly
-# sudo is used in setup.sh
+ENV APPDIR="/opt/developerportal/website/"
+ADD . "${APPDIR}"
+WORKDIR "${APPDIR}"
 
-ADD . /opt/developerportal/website/
-RUN dnf -y update && \
-    dnf -y install sudo git iproute && \
-    useradd -u 1000 -d /opt/developerportal/website dp && \
-    chown -R dp:dp /opt/developerportal && \
-    /bin/bash /opt/developerportal/website/setup.sh && \
-    dnf -y clean all
-
-USER dp
-# Latest content for the Developer Portal is pulled automatically via submodules
-RUN cd /opt/developerportal/website && \
-    git checkout master && \
+RUN set -x && cd "${APPDIR}" && \
+    echo "Set disable_coredump false" >> /etc/sudo.conf && \
+    \
+    ./setup.sh && \
+    \
+    dnf autoremove -y && \
+    dnf clean all -y && \
+    \
     git reset --hard origin/master && \
     git submodule update --init --recursive && \
     cd content && \
-    git checkout master && \
-    git reset --hard origin/master
+    git reset --hard origin/master && \
+    \
+    jekyll build
 
-# Jekyll runs on port 8080
-EXPOSE 8080
+# Jekyll runs on port 4000 by default
+EXPOSE 4000
 
 # Update the content on every run of the container
-CMD export LANG=en_US.UTF-8 && \
-    cd /opt/developerportal/website && \
-    git pull && \
-    git submodule update --recursive --remote && \
-    jekyll serve --force_polling -P 8080 -H $(ip addr show eth0 | sed -n 's/inet \([^ /]*\).*/\1/p')
+#ENTRYPOINT LANG=en_US.UTF-8 bundle exec bash -i "$@"
+CMD jekyll serve --force_polling -H 0.0.0.0 -l -I -w
