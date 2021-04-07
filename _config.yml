@@ -15,7 +15,6 @@ markdown: kramdown
 
 # Dependencies
 plugins:
-  - jekyll-lunr-js-search
   - jekyll-sitemap
   - jekyll-email-protect
   - jekyll-git-authors
