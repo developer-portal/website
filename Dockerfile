@@ -13,9 +13,11 @@ RUN set -x && cd "${APPDIR}" && \
     dnf autoremove -y && \
     dnf clean all -y && \
     \
+    git fetch && \
     git reset --hard origin/master && \
     git submodule update --init --recursive && \
     cd content && \
+    git fetch && \
     git reset --hard origin/master && \
     \
     jekyll build
