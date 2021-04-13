@@ -3,7 +3,7 @@
 ## Local development instance
 
 You can run the site locally on your host or via Vagrant or Docker.
-We recommend you to use Vagrant or Local installation.
+We recommend you to use Docker container.
 
 - [Using a Docker container](DEVELOPMENT.md#using-a-docker-container)
 - [Using Vagrant](DEVELOPMENT.md#using-vagrant)
@@ -11,34 +11,41 @@ We recommend you to use Vagrant or Local installation.
 
 ### Using a Docker container
 
-If you don't have Podman or Docker installed, you can check Fedora Developer Portal on[installing Docker with libvirt provider](https://developer.fedoraproject.org/tools/docker/about.html).
+If you don't have Podman or Docker installed, you can check Fedora Developer Portal page on [installing Docker](https://developer.fedoraproject.org/tools/docker/about.html).
 
-Docker container provides a simple way how to run the development instance of Developer Portal. Following command will start the Jekyll server in a container (with very similar output):
+Docker / Podman container provides a simple way how to run the development instance of Developer Portal. Following command will start the Jekyll server in a container (with very similar output):
 
 ```
-$ sudo docker run -it --rm developerportal/devel
-Configuration file: /website/_config.yml
-            Source: /website
-       Destination: /website/_site
+$ podman run -it --rm -p4000:4000 quay.io/developer-portal/devel
+Configuration file: /opt/developerportal/website/_config.yml
+            Source: /opt/developerportal/website
+       Destination: /opt/developerportal/website/_site
+ Incremental build: enabled
       Generating...
-                    done.
- Auto-regeneration: enabled for '/website'
-Configuration file: /website/_config.yml
-    Server address: http://172.17.1.16:8080/
+       Git authors: Generating authors...
+                    done in 5.293 seconds.
+ Auto-regeneration: enabled for '/opt/developerportal/website'
+LiveReload address: http://0.0.0.0:35729
+    Server address: http://0.0.0.0:4000/
   Server running... press ctrl-c to stop.
+```
+The above command will serve the latest content available in Github repository at the server address http://127.0.0.1:4000/.
+
+If you want to do some changes in a `website` repository and view them, you need to add volume mount, using argument `-v /path/to/your/repo:/opt/developerportal/website:Z`. You'll also need to clone, and step into the particular repository:
 
 ```
-
-The above command will serve the latest content available in Github repository. If you want to do some changes in a `website` repository and view them, you need to add argument `-v /path/to/your/repo:/opt/developerportal/website:Z`:
-
-```
-$ sudo docker run -it --rm -p4000:4000 -v $PWD:/opt/developerportal/website:Z pvalena/developer-portal
+$ git clone --recursive https://github.com/developer-portal/website.git
+$ cd website
+$ podman run -it --rm -p4000:4000 -v "${PWD}:/opt/developerportal/website:Z" quay.io/developer-portal/devel
 ```
 
-In case you want to modify the `content` repository, you need to add argument `-v /path/to/content/repo:/opt/developerportal/website/content`:
+In case you want to modify only the `content` repository, you need to add argument `-v /path/to/content/repo:/opt/developerportal/website/content`:
 ```
-$ sudo docker run -it --rm -v $PWD/content:/opt/developerportal/website/content developerportal/devel
+$ git clone https://github.com/developer-portal/content.git
+$ cd content
+$ podman run -it --rm -p4000:4000 -v "${PWD}:/opt/developerportal/website/content:Z" quay.io/developer-portal/devel
 ```
+The website auto-regenates on any change!
 
 ### Using Vagrant
 
@@ -49,9 +56,7 @@ To start developing clone the *website* repository recursively and run `vagrant 
 ```bash
 $ git clone --recursive https://github.com/developer-portal/website.git && cd website
 $ vagrant up
-$ vagrant ssh
-vagrant$ cd /vagrant
-vagrant$ jekyll serve --force_polling -H 0.0.0.0
+$ vagrant ssh -c "jekyll serve --force_polling -H 0.0.0.0 -l -I -w"
 ```
 
 Once done, you can open http://127.0.0.1:4000/ on your host to see the generated site.
@@ -61,20 +66,18 @@ We use `rsync` by default so you need to run `vagrant rsync-auto` on your host t
 
 ### Using local installation
 
-Before fetching the sources from GitHub make sure you have the public keys uploaded to your GitHub account. Here is how to do it:  https://help.github.com/articles/error-permission-denied-publickey/.
+If you want to install Jekyll and all dependencies **on Fedora**, you can just run the `./setup.sh` script included in this repository.
 
-Then run:
+For other distros use this installation guide: http://jekyllrb.com/docs/installation/
+
+Cloning the repository:
 
 ```bash
-$ git clone --recursive git@github.com:developer-portal/website.git && cd website
-$ jekyll serve --force_polling
+$ git clone --recursive git@github.com:developer-portal/website.git
+$ cd website
 ```
 
-`jekyll serve --force_polling` will start the development server at `http://127.0.0.1:4000/` and regenerate any modified files for you. If you don't have Jekyll installed, here is the installation guide: http://jekyllrb.com/docs/installation/.
-
-If you want to **install Jekyll on Fedora**, you can just run the `./setup.sh` script included in this repository.
-
-To update the content/ directory fetched by `git submodule update` just switch to that directory, make sure you are on the master branch and pull the latest stuff:
+To update the content/ directory fetched by just switch to that directory, make sure you are on the master branch and pull the latest stuff:
 
 ```bash
 $ cd content
@@ -82,8 +85,7 @@ $ git checkout master
 $ git pull
 ```
 
-If you just want to download the sources without uploading your keys get the sources as:
-
+`jekyll serve --force_polling` will start the development server at `http://127.0.0.1:4000/` and regenerate any modified files for you:
 ```bash
-$ git clone https://github.com/developer-portal/content.git
+$ jekyll serve --force_polling -H 0.0.0.0 -l -I -w
 ```
