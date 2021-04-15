@@ -1,6 +1,6 @@
 # Development
 
-## Local development instance
+## Running a local development instance
 
 You can run the site locally on your host or via Vagrant or Docker.
 We recommend you to use Docker container.
@@ -9,43 +9,37 @@ We recommend you to use Docker container.
 - [Using Vagrant](DEVELOPMENT.md#using-vagrant)
 - [Using local installation](DEVELOPMENT.md#using-local-installation)
 
-### Using a Docker container
+You also need already cloned out repositories. You can check the [git guide here](DEVELOPMENT.md#Git-repositories)
 
-If you don't have Podman or Docker installed, you can check Fedora Developer Portal page on [installing Docker](https://developer.fedoraproject.org/tools/docker/about.html).
+### Using a Docker / Podman container
 
-Docker / Podman container provides a simple way how to run the development instance of Developer Portal. Following command will start the Jekyll server in a container (with very similar output):
+If you don't have Podman or Docker installed, you can check Fedora Developer Portal page on [installing Docker](https://developer.fedoraproject.org/tools/docker/about.html). 
 
+If you have podman, you can install `podman-docker` wrapper, which gives you docker executable as well:
 ```
-$ podman run -it --rm -p4000:4000 quay.io/developer-portal/devel
-Configuration file: /opt/developerportal/website/_config.yml
-            Source: /opt/developerportal/website
-       Destination: /opt/developerportal/website/_site
- Incremental build: enabled
-      Generating...
-       Git authors: Generating authors...
-                    done in 5.293 seconds.
- Auto-regeneration: enabled for '/opt/developerportal/website'
-LiveReload address: http://0.0.0.0:35729
-    Server address: http://0.0.0.0:4000/
-  Server running... press ctrl-c to stop.
-```
-The above command will serve the latest content available in Github repository at the server address http://127.0.0.1:4000/.
-
-If you want to do some changes in a `website` repository and view them, you need to add volume mount, using argument `-v /path/to/your/repo:/opt/developerportal/website:Z`. You'll also need to clone, and step into the particular repository:
-
-```
-$ git clone --recursive https://github.com/developer-portal/website.git
-$ cd website
-$ podman run -it --rm -p4000:4000 -v "${PWD}:/opt/developerportal/website:Z" quay.io/developer-portal/devel
+$ sudo dnf install podman-docker
 ```
 
-In case you want to modify only the `content` repository, you need to add argument `-v /path/to/content/repo:/opt/developerportal/website/content`:
+The container provides a simple way how to run the development instance of Developer Portal. Following command will download the Jekyll server, including already build site, in a container:
+
 ```
-$ git clone https://github.com/developer-portal/content.git
+$ docker pull quay.io/developer-portal/devel
+```
+
+If you want to modify and view changes in the `content` repository, you need to add volume mount, using argument `-v /path/to/content/repo:/opt/developerportal/website/content`. Ideally, run it from the `content` folder, like this:
+
+```
 $ cd content
 $ podman run -it --rm -p4000:4000 -v "${PWD}:/opt/developerportal/website/content:Z" quay.io/developer-portal/devel
 ```
-The website auto-regenates on any change!
+This will serve the in you local folder at the server address http://127.0.0.1:4000/. The website auto-regenates on any change!
+
+If you want to do some changes in both `website` and `content` repositories, run the container from website repository, like this:
+
+```
+$ cd website
+$ podman run -it --rm -p4000:4000 -v "${PWD}:/opt/developerportal/website:Z" quay.io/developer-portal/devel
+```
 
 ### Using Vagrant
 
@@ -54,7 +48,7 @@ If you don't have Vagrant installed, you can check Fedora Developer Portal on [i
 To start developing clone the *website* repository recursively and run `vagrant up`. Afterwards just start the Jekyll server at 0.0.0.0 (instead of default loopback).
 
 ```bash
-$ git clone --recursive https://github.com/developer-portal/website.git && cd website
+$ cd website
 $ vagrant up
 $ vagrant ssh -c "jekyll serve --force_polling -H 0.0.0.0 -l -I -w"
 ```
@@ -70,22 +64,94 @@ If you want to install Jekyll and all dependencies **on Fedora**, you can just r
 
 For other distros use this installation guide: http://jekyllrb.com/docs/installation/
 
-Cloning the repository:
-
+Jekyll will start the development server at `http://127.0.0.1:4000/` and regenerate any modified files for you, using command:
 ```bash
-$ git clone --recursive git@github.com:developer-portal/website.git
-$ cd website
+$ jekyll serve --force_polling -H 0.0.0.0 -l -I -w
 ```
 
-To update the content/ directory fetched by just switch to that directory, make sure you are on the master branch and pull the latest stuff:
+## Git repositories
+
+### Cloning
+
+It's advised to make a fork in the github WebUI, but clone the origin repository instead:
+
+```
+$ git clone --recursive https://github.com/developer-portal/website.git
+```
+
+Then add a your fork as a remote:
+```
+$ cd website
+# Change my-github-name to your github name. It will also be used later on.
+$ remote=my-github-name
+$ git remote add $remote ssh://pvalena@pkgs.fedoraproject.org/forks/$remote/rpms/website.git
+$ git fetch $remote
+```
+
+And the same for `content` repository:
+```
+$ cd content
+$ git remote add $remote ssh://pvalena@pkgs.fedoraproject.org/forks/$remote/rpms/content.git
+$ git fetch $remote
+```
+
+### Pushing
+
+You need to create a branch, which will hold your changes, first:
+```
+# We'll create the branch from latest master commit
+$ git checkout master
+$ git pull
+# Change my-branch to your new branch name. It will also be used later.
+$ branch=my-branch
+$ git checkout -b $branch
+```
+
+Now edit the files, and ideally view the changes using a [local development instance](DEVELOPMENT.md#Running-a-local-development-instance).
+
+And then to push your changes to your fork:
+```
+# We're using variables created above, holding your remote and branch names.
+$ git push -u $remote $branch
+```
+
+### Pulling
+
+In case you want to view some changes wich are already in your fork (e.g. modified using Github WebUI). We're using variables holding your remote and branch names:
+
+```bash
+# Set it to already existing remote branch
+$ branch=my-branch-name
+```
+
+You can fetch the changes from your fork:
+
+```bash
+$ git fetch $remote
+```
+
+And then checkout the branch:
+
+```bash
+$ git checkout -b $branch -t $remote/$branch 
+```
+
+### Rebases
+
+To update the `content/` directory, switch to that directory, make sure you are on your development branch and rebase on the latest stuff:
 
 ```bash
 $ cd content
-$ git checkout master
-$ git pull
+$ git checkout my-devel-branch
+$ git fetch origin
+$ git rebase origin/master
 ```
 
-`jekyll serve --force_polling` will start the development server at `http://127.0.0.1:4000/` and regenerate any modified files for you:
+If conflicts occured, you need to resolve them, and continue with rebase.
+
 ```bash
-$ jekyll serve --force_polling -H 0.0.0.0 -l -I -w
+$ nano file/that/has/conflict.md
+# properly adjusted / edited to show correct content
+$ git add file/that/has/conflict.md
+$ git rebase --continue
 ```
