@@ -30,7 +30,7 @@ If you want to modify and view changes in the `content` repository, you need to 
 
 ```
 $ cd content
-$ podman run -it --rm -p4000:4000 -v "${PWD}:/opt/developerportal/website/content:Z" quay.io/developer-portal/devel
+$ docker run -it --rm -p4000:4000 -v "${PWD}:/opt/developerportal/website/content:Z" quay.io/developer-portal/devel
 ```
 This will serve the in you local folder at the server address http://127.0.0.1:4000/. The website auto-regenates on any change!
 
@@ -38,7 +38,7 @@ If you want to do some changes in both `website` and `content` repositories, run
 
 ```
 $ cd website
-$ podman run -it --rm -p4000:4000 -v "${PWD}:/opt/developerportal/website:Z" quay.io/developer-portal/devel
+$ docker run -it --rm -p4000:4000 -v "${PWD}:/opt/developerportal/website:Z" quay.io/developer-portal/devel
 ```
 
 ### Using Vagrant
@@ -79,19 +79,19 @@ It's advised to make a fork in the github WebUI, but clone the origin repository
 $ git clone --recursive https://github.com/developer-portal/website.git
 ```
 
-Then add a your fork as a remote:
+Then add your fork as a remote:
 ```
 $ cd website
 # Change my-github-name to your github name. It will also be used later on.
 $ remote=my-github-name
-$ git remote add $remote ssh://pvalena@pkgs.fedoraproject.org/forks/$remote/rpms/website.git
+$ git remote add $remote ssh://$remote@pkgs.fedoraproject.org/forks/$remote/rpms/website.git
 $ git fetch $remote
 ```
 
 And the same for `content` repository:
 ```
 $ cd content
-$ git remote add $remote ssh://pvalena@pkgs.fedoraproject.org/forks/$remote/rpms/content.git
+$ git remote add $remote ssh://$remote@pkgs.fedoraproject.org/forks/$remote/rpms/content.git
 $ git fetch $remote
 ```
 
