@@ -7,3 +7,5 @@ content
 .vagrant
 .jekyll-metadata
 *~
+/.jekyll-cache/
+Gemfile.lock
