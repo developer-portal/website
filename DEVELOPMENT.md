@@ -5,11 +5,11 @@
 You can run the site locally on your host or via Vagrant or Docker.
 We recommend you to use Docker container.
 
-- [Using a Docker container](DEVELOPMENT.md#using-a-docker-container)
+- [Using a Docker container](DEVELOPMENT.md#using-a-docker--podman-container)
 - [Using Vagrant](DEVELOPMENT.md#using-vagrant)
 - [Using local installation](DEVELOPMENT.md#using-local-installation)
 
-You also need already cloned out repositories. You can check the [git guide here](DEVELOPMENT.md#Git-repositories)
+You also need already cloned out repositories. You can check the [git guide](DEVELOPMENT.md#Git-repositories).
 
 ### Using a Docker / Podman container
 
