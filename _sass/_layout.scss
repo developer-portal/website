@@ -242,6 +242,11 @@ div.content-content {
     margin-left: 0px;
     color: #111;
   }
+
+  img {
+    object-fit: scale-down;
+    width: 100%;
+  }
 }
 
 
