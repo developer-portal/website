@@ -5,6 +5,8 @@ ENV APPDIR="/opt/developerportal/website/"
 ADD . "${APPDIR}"
 WORKDIR "${APPDIR}"
 
+
+
 RUN set -x && cd "${APPDIR}" && \
     echo "Set disable_coredump false" >> /etc/sudo.conf && \
     \
@@ -17,6 +19,9 @@ RUN set -x && cd "${APPDIR}" && \
     git submodule update --init --recursive && \
     cd content && \
     git reset --hard origin/master && \
+    \
+    : 'This is a workaround for https://github.com/developer-portal/website/issues/88#issuecomment-850928283' \
+    git cherry-pick 1447b716c9cdf2417918cbf0b8566b665d22fd93 \
     \
     jekyll build
 
