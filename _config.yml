@@ -9,6 +9,7 @@ url: "http://developer.fedoraproject.org" # the base hostname & protocol for you
 twitter_username: jekyllrb
 github_username:  jekyll
 encoding: utf-8
+fedora_release: 34
 
 # Build settings
 markdown: kramdown
@@ -104,4 +105,4 @@ defaults:
     scope:
       path: ""
     values:
-      fedora_release: "33"
+      fedora_release: "34"
