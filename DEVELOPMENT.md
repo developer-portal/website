@@ -26,6 +26,8 @@ The container provides a simple way how to run the development instance of Devel
 $ docker pull quay.io/developer-portal/devel
 ```
 
+#### With content repository mounted
+
 If you want to modify and view changes in the `content` repository, you need to add volume mount, using argument `-v /path/to/content/repo:/opt/developerportal/website/content`. Ideally, run it from the `content` folder, like this:
 
 ```
@@ -33,6 +35,8 @@ $ cd content
 $ docker run -it --rm -p4000:4000 -v "${PWD}:/opt/developerportal/website/content:Z" quay.io/developer-portal/devel
 ```
 This will serve the in you local folder at the server address http://127.0.0.1:4000/. The website auto-regenates on any change!
+
+#### With website repository mounted
 
 If you want to do some changes in both `website` and `content` repositories, run the container from website repository, like this:
 
@@ -154,4 +158,17 @@ $ nano file/that/has/conflict.md
 # properly adjusted / edited to show correct content
 $ git add file/that/has/conflict.md
 $ git rebase --continue
+```
+
+### Errors
+
+In case you encounter error like:
+```
+Could not find jekyll-4.2.0 in any of the sources
+```
+
+Try removing `Gemfile.lock`:
+```
+$ cd website
+$ rm Gemfile.lock
 ```
