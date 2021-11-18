@@ -2,6 +2,8 @@
 
 ## Running a local development instance
 
+[TL;DR](DEVELOPMENT.md#option-1-mounting-content-repository)
+
 You can run the site locally on your host or via Vagrant or Docker.
 We recommend you to use Docker container.
 
