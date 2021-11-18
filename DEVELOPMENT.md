@@ -20,13 +20,13 @@ If you have podman, you can install `podman-docker` wrapper, which gives you doc
 $ sudo dnf install podman-docker
 ```
 
-The container provides a simple way how to run the development instance of Developer Portal. Following command will download the Jekyll server, including already build site, in a container:
+The container provides a simple way how to run the development instance of Developer Portal. Following command will download our development container, which includes Jekyll & all dependencies for building the site (and also a pre-built site):
 
 ```
 $ docker pull quay.io/developer-portal/devel
 ```
 
-#### With content repository mounted
+#### Option 1: Mounting `content` repository
 
 If you want to modify and view changes in the `content` repository, you need to add volume mount, using argument `-v /path/to/content/repo:/opt/developerportal/website/content`. Ideally, run it from the `content` folder, like this:
 
@@ -36,7 +36,7 @@ $ docker run -it --rm -p4000:4000 -v "${PWD}:/opt/developerportal/website/conten
 ```
 This will serve the in you local folder at the server address http://127.0.0.1:4000/. The website auto-regenates on any change!
 
-#### With website repository mounted
+#### Option 2: Mounting `website` repository
 
 If you want to do some changes in both `website` and `content` repositories, run the container from website repository, like this:
 
