@@ -26,15 +26,23 @@ The container provides a simple way how to run the development instance of Devel
 $ docker pull quay.io/developer-portal/devel
 ```
 
+For viewing the pre-built site, run:
+```
+$ docker run -it --rm -p4000:4000 quay.io/developer-portal/devel
+```
+The website is available on address http://0.0.0.0:4000/. 
+
+_Note: the website gets rebuilt anyway (on container start) from the included content._
+
 #### Option 1: Mounting `content` repository
 
-If you want to modify and view changes in the `content` repository, you need to add volume mount, using argument `-v /path/to/content/repo:/opt/developerportal/website/content`. Ideally, run it from the `content` folder, like this:
+If you want to modify and view changes in the `content` repository only, you need to run add volume mount, using an option `-v /path/to/content/repo:/opt/developerportal/website/content`. Ideally, run it from the `content` folder, like this:
 
 ```
 $ cd content
 $ docker run -it --rm -p4000:4000 -v "${PWD}:/opt/developerportal/website/content:Z" quay.io/developer-portal/devel
 ```
-This will serve the in you local folder at the server address http://127.0.0.1:4000/. The website auto-regenates on any change!
+This will serve the site with your local content changes on address http://0.0.0.0:4000/. The website auto-regenates on any change!
 
 #### Option 2: Mounting `website` repository
 
@@ -44,6 +52,8 @@ If you want to do some changes in both `website` and `content` repositories, run
 $ cd website
 $ docker run -it --rm -p4000:4000 -v "${PWD}:/opt/developerportal/website:Z" quay.io/developer-portal/devel
 ```
+This will serve the site with your local website & content changes on address http://0.0.0.0:4000/. The website auto-regenates on any change!
+
 
 ### Using Vagrant
 
