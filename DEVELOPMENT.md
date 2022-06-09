@@ -2,6 +2,8 @@
 
 ## Running a local development instance
 
+[TL;DR](DEVELOPMENT.md#option-1-mounting-content-repository)
+
 You can run the site locally on your host or via Vagrant or Docker.
 We recommend you to use Docker container.
 
@@ -20,19 +22,31 @@ If you have podman, you can install `podman-docker` wrapper, which gives you doc
 $ sudo dnf install podman-docker
 ```
 
-The container provides a simple way how to run the development instance of Developer Portal. Following command will download the Jekyll server, including already build site, in a container:
+The container provides a simple way how to run the development instance of Developer Portal. Following command will download our development container, which includes Jekyll & all dependencies for building the site (and also a pre-built site):
 
 ```
 $ docker pull quay.io/developer-portal/devel
 ```
 
-If you want to modify and view changes in the `content` repository, you need to add volume mount, using argument `-v /path/to/content/repo:/opt/developerportal/website/content`. Ideally, run it from the `content` folder, like this:
+For viewing the pre-built site, run:
+```
+$ docker run -it --rm -p4000:4000 quay.io/developer-portal/devel
+```
+The website is available on address http://0.0.0.0:4000/. 
+
+_Note: the website gets rebuilt anyway (on container start) from the included content._
+
+#### Option 1: Mounting `content` repository
+
+If you want to modify and view changes in the `content` repository only, you need to run add volume mount, using an option `-v /path/to/content/repo:/opt/developerportal/website/content`. Ideally, run it from the `content` folder, like this:
 
 ```
 $ cd content
 $ docker run -it --rm -p4000:4000 -v "${PWD}:/opt/developerportal/website/content:Z" quay.io/developer-portal/devel
 ```
-This will serve the in you local folder at the server address http://127.0.0.1:4000/. The website auto-regenates on any change!
+This will serve the site with your local content changes on address http://0.0.0.0:4000/. The website auto-regenates on any change!
+
+#### Option 2: Mounting `website` repository
 
 If you want to do some changes in both `website` and `content` repositories, run the container from website repository, like this:
 
@@ -40,6 +54,8 @@ If you want to do some changes in both `website` and `content` repositories, run
 $ cd website
 $ docker run -it --rm -p4000:4000 -v "${PWD}:/opt/developerportal/website:Z" quay.io/developer-portal/devel
 ```
+This will serve the site with your local website & content changes on address http://0.0.0.0:4000/. The website auto-regenates on any change!
+
 
 ### Using Vagrant
 
@@ -154,4 +170,17 @@ $ nano file/that/has/conflict.md
 # properly adjusted / edited to show correct content
 $ git add file/that/has/conflict.md
 $ git rebase --continue
+```
+
+### Errors
+
+In case you encounter error like:
+```
+Could not find jekyll-4.2.0 in any of the sources
+```
+
+Try removing `Gemfile.lock`:
+```
+$ cd website
+$ rm Gemfile.lock
 ```

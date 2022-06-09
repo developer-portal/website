@@ -1,4 +1,4 @@
-FROM fedora
+FROM registry.fedoraproject.org/fedora
 MAINTAINER Developer-portal <developer-portal@lists.fedoraproject.org>
 
 ENV APPDIR="/opt/developerportal/website/"

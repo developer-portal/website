@@ -16,18 +16,16 @@
 
 ### From development to staging
 
-First merge the latest desired changes from `master` to `release` branch in the `content` repository using `git merge master` from `release` branch.
+Merge the latest desired changes to `master` branch in the `content` and `website` repositories.
 
-Afterwards merge the desired changes from `master` to `release` branch in the `website` repository using `git merge master` from `release` branch.
-
-Than you are able to generate the site (`jekyll generate`), run the tests (`rspec spec`) and copy the files from newly generated `_site/` directory alongside the `rss.py` script over to `master` branch in the `developer.fedoraproject.org` repository.
-
-e.g.:
+Afterwards generate the site using `jekyll generate`, and run the tests using `rspec spec`. Then copy the files from newly generated `./_site/` directory and the `rss.py` script to `master` branch in the `developer.fedoraproject.org` repository.
 
 ```
 cp -r ../website/_site/* .
 cp -r ../website/rss.py .
 ```
+
+Alternatively, you can use a script `container.sh` in `tools` repository, which does the above for you, inside a development container. See the `README.md` for usage.
 
 Don't forget to `git add` new files!
 
