@@ -2,7 +2,8 @@
 **[Project Page](https://fedoraproject.org/wiki/Websites/Developer)** |
 **[Content Repository](https://github.com/developer-portal/content)** |
 [Website Repository](https://github.com/developer-portal/website)
-<hr>
+
+[![Docker Repository on Quay](https://quay.io/repository/developer-portal/devel/status "Docker Repository on Quay")](https://quay.io/repository/developer-portal/devel)
 
 This repository contains [Jekyll](http://jekyllrb.com/) templates, CSS styles and images for the [Fedora Developer Portal](https://developer.fedoraproject.org/).
 
