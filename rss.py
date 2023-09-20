@@ -20,7 +20,7 @@ import feedparser
 import re
 import sys
 
-feedparser._HTMLSanitizer.unacceptable_elements_with_end_tag.add('<div>')
+feedparser.sanitizer._HTMLSanitizer.unacceptable_elements_with_end_tag.add('<div>')
 
 defenc = "utf-8" if sys.getdefaultencoding() == "ascii" else sys.getdefaultencoding()
 
