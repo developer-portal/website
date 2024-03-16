@@ -1,28 +1,8 @@
 <div class="row" id="headlines">
   <div class="col-sm-12">
-    {% for p in site.pages %}
-      {% if p.subsection == page.subsection %}
-        {% if p.section %}
-          <img class="img-rounded" src="{{ p.subsection | subsection_logo }}">
-        {% endif %}
-      {% endif %}
-    {% endfor %}
-
-    {% for p in site.pages %}
-      {% if p.subsection == page.subsection %}
-        {% if p.section %}
-          <h2>{{ p.title }}</h2>
-        {% endif %}
-      {% endif %}
-    {% endfor %}
-
-    {% for p in site.pages %}
-      {% if p.subsection == page.subsection %}
-        {% if p.section %}
-          <p>{{ p.description }}</p>
-        {% endif %}
-      {% endif %}
-    {% endfor %}
+    <img class="img-rounded" src="{{ page.subsection | subsection_logo }}">
+    <h2>{{ page.title }}</h2>
+    <p>{{ page.description }}</p>
   </div>
 </div>
 <div class="row" id="attribution">
