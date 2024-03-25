@@ -17,7 +17,16 @@ layout: default
             {% assign sorted_pages = site.pages | sort: "order" %}
             {% for p in sorted_pages %}
               {% if p.subsection == page.subsection %}
+                {% if p.section %}
                 <a href="{{p.url}}" class="list-group-item {% if p.url == page.url %} active {% endif %}">{{ p.title }}</a>
+                {% endif %}
+              {% endif %}
+            {% endfor %}
+            {% for p in sorted_pages %}
+              {% if p.subsection == page.subsection %}
+                {% if p.section %}{% else %}
+                <a href="{{p.url}}" class="list-group-item {% if p.url == page.url %} active {% endif %}">{{ p.title }}</a>
+                {% endif %}
               {% endif %}
             {% endfor %}
           </div>
@@ -26,6 +35,7 @@ layout: default
               {% include ask_fedora.html %}
             </div>
           </div>
+
           <a target="_blank" href="https://github.com/developer-portal/content/edit/master{{page.dir}}{{page.name}}" class="btn btn-default">Edit this page</a>
           <a target="_blank" href="https://github.com/developer-portal/content/issues/new?title={{page.section}}:+{{page.subsection}}+{{page.name}}&body=Describe+the+problem" class="btn btn-default">Report an issue</a>
         </div>
