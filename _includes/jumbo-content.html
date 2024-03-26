@@ -4,21 +4,7 @@
       {% if p.subsection == page.subsection %}
         {% if p.section %}
           <img class="img-rounded" src="{{ p.subsection | subsection_logo }}">
-        {% endif %}
-      {% endif %}
-    {% endfor %}
-
-    {% for p in site.pages %}
-      {% if p.subsection == page.subsection %}
-        {% if p.section %}
           <h2>{{ p.title }}</h2>
-        {% endif %}
-      {% endif %}
-    {% endfor %}
-
-    {% for p in site.pages %}
-      {% if p.subsection == page.subsection %}
-        {% if p.section %}
           <p>{{ p.description }}</p>
         {% endif %}
       {% endif %}

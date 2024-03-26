@@ -17,16 +17,7 @@ layout: default
             {% assign sorted_pages = site.pages | sort: "order" %}
             {% for p in sorted_pages %}
               {% if p.subsection == page.subsection %}
-                {% if p.section %}
-                <a href="{{p.url}}" class="list-group-item {% if p.url == page.url %} active {% endif %}">{{ p.title }}</a>
-                {% endif %}
-              {% endif %}
-            {% endfor %}
-            {% for p in sorted_pages %}
-              {% if p.subsection == page.subsection %}
-                {% if p.section %}{% else %}
-                <a href="{{p.url}}" class="list-group-item {% if p.url == page.url %} active {% endif %}">{{ p.title }}</a>
-                {% endif %}
+              <a href="{{p.url}}" class="list-group-item {% if p.url == page.url %} active {% endif %}">{{ p.title }}</a>
               {% endif %}
             {% endfor %}
           </div>
